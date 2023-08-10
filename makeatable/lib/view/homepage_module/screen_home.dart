@@ -1,90 +1,141 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makeatable/main.dart';
+import 'package:makeatable/view/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final user_name = "Sanjay";
     final size = MediaQuery.of(context).size;
 
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       home: Scaffold(
+          backgroundColor: Colors.white,
           body: SafeArea(
-            child: Container(
-              width: size.width,
-              height: size.height,
-              color: Colors.white,
-              child: ListView(
-                children: [
-                  SizedBox(
-                    height: 10,
+            child: ListView(
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                const WelcomeMessage(name: "Sanjay"),
+                const TitleHeading(
+                  heading: "Reminder",
+                ),
+
+                // reminder box
+                const ReminderCard(
+                  location: "Palazhi, Calicut",
+                  time: "01:00PM",
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(35, 10, 5, 2),
+                  child: Text(
+                    'Top rated',
+                    style: TextStyle(color: Color.fromARGB(223, 109, 109, 109)),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
+                ),
+                Container(
+                    height: 150,
+                    color: Colors.white,
+                    child: ListView(
+                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.only(left: 15, right: 10),
+                      scrollDirection: Axis.horizontal,
                       children: [
-                        Text(
-                          '👋 Hai,',
-                          style: TextStyle(
-                            fontSize: 24,
-                          ),
-                        ),
-                        Text(
-                          ' Sanjay!',
-                          style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold),
-                        ),
+                        topRatedFoodCard(
+                            foodName: "Chicken Briyani",
+                            price: "Rs 150",
+                            imagePath: "images/chicken_biriyani.jpeg"),
+                        topRatedFoodCard(
+                            foodName: "Chicken Briyani",
+                            price: "Rs 150",
+                            imagePath: "images/chicken_biriyani.jpeg"),
+                        topRatedFoodCard(
+                            foodName: "Chicken Briyani",
+                            price: "Rs 150",
+                            imagePath: "images/chicken_biriyani.jpeg"),
+                        topRatedFoodCard(
+                            foodName: "Chicken Briyani",
+                            price: "Rs 150",
+                            imagePath: "images/chicken_biriyani.jpeg")
                       ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(35, 10, 5, 2),
-                    child: Text(
-                      'Reminder',
-                      style:
-                          TextStyle(color: Color.fromARGB(223, 109, 109, 109)),
-                    ),
-                  ),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(25, 0, 25, 10),
-                      child: Container(
-                        width: size.width - 100,
-                        height: 150,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.red),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                    )),
+                // top rated cards [scroll]
+              ],
             ),
           ),
-          bottomNavigationBar: bottomBar(0)),
+          bottomNavigationBar: bottomBar()),
     );
   }
 }
 
-Widget bottomBar(index) {
+topRatedFoodCard(
+    {required foodName, required String price, required imagePath}) {
+  return Padding(
+    padding: EdgeInsets.only(left: 10, right: 10),
+    child: Container(
+      color: Colors.black,
+      width: 240,
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 110, 0, 5),
+            child: Text(
+              'Chicken Biriyani ',
+              style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 150, 0, 5),
+            child: Text(
+              'Rs 150',
+              style: TextStyle(
+                  color: Color.fromARGB(172, 255, 193, 7),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w100),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget bottomBar() {
   return BottomNavigationBar(
     showSelectedLabels: false,
     showUnselectedLabels: false,
     backgroundColor: Color(0xffFBEFE4),
     selectedItemColor: Color(0xFFE81514),
     unselectedItemColor: Color(0xFF667080),
+    elevation: 0,
     items: <BottomNavigationBarItem>[
       BottomNavigationBarItem(
-        icon: SvgPicture.asset('icons/home.svg'),
+        icon: SvgPicture.asset(
+          'icons/home.svg',
+          color: Color(0xFFE81514),
+        ),
         label: '',
       ),
       BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/home.svg'), label: ''),
+          icon: SvgPicture.asset(
+            'icons/search.svg',
+            color: Color(0xFF667080),
+          ),
+          label: ''),
       BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/home.svg'), label: ''),
+          icon: SvgPicture.asset('icons/user.svg', color: Color(0xFF667080)),
+          label: ''),
     ],
-    currentIndex: index,
+    currentIndex: 0,
   );
 }

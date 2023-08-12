@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/svg.dart';
+import 'package:makeatable/util/constants/color_constants.dart';
+import 'package:makeatable/view/shared/widgets.dart';
 
 class mainsearchpage extends StatefulWidget {
   const mainsearchpage({super.key});
@@ -18,52 +20,60 @@ class _mainsearchpageState extends State<mainsearchpage> {
           children: [
             Container(
               child: Container(
-                margin: EdgeInsets.only(top: 45, bottom: 15),
-                padding: EdgeInsets.only(right: 35,left: 23),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        Text("Discover" , style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21,),
-                        ),
-                      ],
-                    ),
-                    Center(
-                      child: Container(
-                        child: Icon(Icons.filter_alt, color: Color(0xff522903)),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.transparent,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 45, 35, 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TopMessage(name: " "),
+                      Center(
+                        child: Container(
+                          child: Icon(Icons.filter_alt),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-            Container(
-              width: 350,
-              height: 60,
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'search',
-                    suffixIcon: const Icon(Icons.search),
-                    suffixIconColor: Color(0xff522903),
-                ),
-              ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(15, 5, 15, 15),
+              child: SearchBarWidget(),
             ),
             Container(
+              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              height: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
+                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
+                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
+                ],
+              ),
+            )
+            // ListView(
+            //   scrollDirection: Axis.horizontal,
+            //   children: [
+            //      // Text('dasas'),
+            //      TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
+            //   ],
+            // ),
+            ,Container(
               child: Container(
-                margin: EdgeInsets.only(top:230, bottom: 20),
-                padding: EdgeInsets.only(right: 20,left: 20),
+                margin: EdgeInsets.only(top: 10, bottom: 0),
+                padding: EdgeInsets.only(right: 20, left: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
-                        Text("Recent" , style: TextStyle(fontWeight: FontWeight.bold,fontSize: 21,),
+                        Text(
+                          "Recent",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 21,
+                          ),
                         ),
                       ],
                     ),
@@ -71,8 +81,22 @@ class _mainsearchpageState extends State<mainsearchpage> {
                 ),
               ),
             ),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              height: 290,
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                children: [
+                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
+                ],
+              ),
+            )
           ],
         ),
+        bottomNavigationBar: CustomBottomNavBar(),
       ),
     );
   }

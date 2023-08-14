@@ -8,33 +8,46 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isLogged = true;
     // Data from DB
     final hp = HomepageModel();
 
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: "Poppins"),
         home: Scaffold(
+          backgroundColor: Color.fromARGB(255, 255, 255, 255),
           body: ListView(
             physics: BouncingScrollPhysics(),
             children: [
               // View Starts
               const wBlock(10),
               // welcome msg
-              const WelcomeMessage(name: 'Sanju'),
+              isLogged
+                  ? const WelcomeMessage(name: 'Sanju')
+                  : const WelcomeMessage(name: 'get Your Food'),
 
               // Reminder section
-              const TitleHeading(heading: 'Reminder'),
-              const ReminderCard(time: 'time', location: 'location'),
+              isLogged
+                  ? const TitleHeading(heading: 'Reminder')
+                  : SizedBox(
+                      height: 0,
+                    ),
+              isLogged
+                  ? ReminderCard(time: 'time', location: 'location')
+                  : SizedBox(
+                      height: 0,
+                    ),
 
               // top rated section [list of Top rated foods]
               const TitleHeading(heading: 'Top Rated'),
               const hBlock(10),
               SizedBox(
-                  height: 200,
+                  height: 240,
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
-                    itemCount: 1,
+                    itemCount: 3,
                     itemBuilder: (c, i) {
                       return const TopRatedCard(
                           foodName: 'foodName',
@@ -69,8 +82,24 @@ class HomeScreen extends StatelessWidget {
                     return const CatogaryCard();
                   }),
               const SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Explore now',
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 190, 190, 190)),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15,
+                      color: Color.fromARGB(255, 190, 190, 190),
+                    )
+                  ],
+                ),
                 height: 20,
-              )
+              ),
+              hBlock(10)
             ],
           ), // Catagory section
           bottomNavigationBar: const CustomBottomNavBar(selected: 0),

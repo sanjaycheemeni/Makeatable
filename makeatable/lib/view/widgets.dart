@@ -189,38 +189,71 @@ class TopRatedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(left: 50), ////change afteeeeerrrr
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.white,
-              boxShadow: const [
-                BoxShadow(
-                    color: Color.fromARGB(255, 202, 202, 202),
-                    spreadRadius: 1,
-                    blurRadius: 4)
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 280,
+        width: 290,
+        decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                  color: Color.fromARGB(255, 202, 202, 202),
+                  spreadRadius: 1,
+                  blurRadius: 4)
+            ],
+            color: const Color.fromARGB(255, 255, 255, 255),
+            borderRadius: BorderRadius.circular(8)),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Container(
+            alignment: Alignment.topRight,
+            width: 290,
+            height: 150,
+            decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('images/chicken_biriyani.jpeg'))),
+            child: Container(
+              margin: const EdgeInsets.only(top: 10, right: 10),
+              width: 40,
+              height: 25,
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 53, 100, 255),
+                  borderRadius: BorderRadius.circular(5)),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Image.asset(
+                  'images/star.png',
+                  height: 12,
+                  width: 12,
+                  color: Colors.white,
+                ),
+                const Text(
+                  '4.3',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
               ]),
-          width: 250,
-          height: 100,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 5, right: 5),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Container(
-                margin: const EdgeInsets.only(left: 0, top: 5),
-                width: 240,
-                height: 140,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('images/chicken_biriyani.jpeg'))),
-              ),
-              Text('Food name'),
-              Text('price')
-            ]),
+            ),
           ),
-        ));
+          const Padding(
+            padding: EdgeInsets.only(left: 8, top: 8),
+            child: Text(
+              'Chicken Biriyani',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: Text(
+              'Paragon Hotel',
+              style: TextStyle(
+                  fontSize: 15, color: Color.fromARGB(95, 43, 43, 43)),
+            ),
+          )
+        ]),
+      ),
+    );
   }
 }
 
@@ -277,12 +310,12 @@ class CatogaryCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           width: 148,
           decoration: BoxDecoration(
-            color: Colors.red,
+            color: mRed,
             borderRadius: BorderRadius.circular(8),
             image: const DecorationImage(
                 image: AssetImage('images/tea.png'),
                 fit: BoxFit.cover,
-                opacity: .7),
+                opacity: .9),
           ),
           child: const Text(
             'Juices',

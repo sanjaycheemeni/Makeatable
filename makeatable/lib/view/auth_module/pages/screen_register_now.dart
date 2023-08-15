@@ -69,7 +69,3 @@ class RegisterNow extends StatelessWidget {
     );
   }
 }
-
-forgotPassword(String mail) {
-  print(mail);
-}

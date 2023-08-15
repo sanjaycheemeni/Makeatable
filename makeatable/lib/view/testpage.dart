@@ -1,22 +1,25 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../widgets/widget_catogerycard.dart';
-import '../../widgets/widget_custombottombar.dart';
-import '../../widgets/widget_remindercard.dart';
-import '../../widgets/widget_sizedblock.dart';
-import '../../widgets/widget_titleheading.dart';
-import '../../widgets/widget_topratedcard.dart';
-import '../../widgets/widget_toprestocard.dart';
-import '../../widgets/widget_welcomemessage.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:makeatable/model/homepage.dart';
+import 'package:makeatable/view/widgets.dart';
 
-class HomeScreen extends StatelessWidget {
-  final bool isLogged;
-  const HomeScreen({required this.isLogged, super.key});
+import 'homepage_module/widgets/widget_custombottombar.dart';
+import 'homepage_module/widgets/widget_remindercard.dart';
+import 'homepage_module/widgets/widget_sizedblock.dart';
+import 'homepage_module/widgets/widget_titleheading.dart';
+import 'homepage_module/widgets/widget_topratedcard.dart';
+import 'homepage_module/widgets/widget_toprestocard.dart';
+import 'homepage_module/widgets/widget_welcomemessage.dart';
+
+class TestPage extends StatelessWidget {
+  const TestPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool isLogged = true;
     // Data from DB
+    final hp = HomepageModel();
 
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -30,12 +33,12 @@ class HomeScreen extends StatelessWidget {
               const wBlock(10),
               // welcome msg
               isLogged
-                  ? const WelcomeMessage(name: 'Rafi')
+                  ? const WelcomeMessage(name: 'Sanju')
                   : const WelcomeMessage(name: 'get Your Food'),
 
               // Reminder section
               isLogged
-                  ? const TitleHeading(heading: 'Reminder')
+                  ? const TitleHeading(heading: 'Remijknbnm,mnmnder')
                   : SizedBox(
                       height: 0,
                     ),
@@ -87,28 +90,25 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (c, i) {
                     return const CatogaryCard();
                   }),
-              SizedBox(
-                height: 20,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Explore now',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 190, 190, 190)),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 15,
-                        color: Color.fromARGB(255, 190, 190, 190),
-                      )
-                    ],
-                  ),
+              const SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Explore now',
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 190, 190, 190)),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 15,
+                      color: Color.fromARGB(255, 190, 190, 190),
+                    )
+                  ],
                 ),
+                height: 20,
               ),
-              const hBlock(10)
+              hBlock(10)
             ],
           ), // Catagory section
           bottomNavigationBar: const CustomBottomNavBar(selected: 0),

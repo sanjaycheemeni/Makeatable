@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:makeatable/view/auth_module/pages/screen_login.dart';
+import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+  const Splash({super.key});
 
   @override
   State<Splash> createState() => _SplashState();
@@ -9,9 +14,17 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   @override
+  void initState() {
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         color: Color(0xfff1f1f1),
@@ -29,6 +42,6 @@ class _SplashState extends State<Splash> {
           ),
         ),
       ),
-    ));
+    );
   }
 }

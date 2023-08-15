@@ -68,7 +68,3 @@ class ResetPassword extends StatelessWidget {
     );
   }
 }
-
-forgotPassword(String mail) {
-  print(mail);
-}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:makeatable/view/auth_module/pages/screen_check_mail.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
 import 'package:makeatable/view/auth_module/pages/screen_otp.dart';
@@ -15,4 +16,10 @@ void main() {
   // runApp(ResetPassword());
   // runApp(RegisterNow());
   // runApp(Otp());
+=======
+import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
+
+void main() {
+  runApp(const HomeScreen());
+>>>>>>> 3cf94a05adedfba3bfc0404f167f13f29cc96193
 }

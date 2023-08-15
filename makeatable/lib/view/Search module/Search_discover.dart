@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/shared/widgets.dart';
+import 'package:makeatable/view/shared/Filter.dart';
 
 class mainsearchpage extends StatefulWidget {
   const mainsearchpage({super.key});
@@ -16,54 +17,40 @@ class _mainsearchpageState extends State<mainsearchpage> {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       home: Scaffold(
+        backgroundColor: const Color(0xfffff2f2),
         body: Column(
           children: [
-            Container(
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(25, 45, 35, 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TopMessage(name: " "),
-                      Center(
-                        child: Container(
-                          child: Icon(Icons.filter_alt),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(30, 45, 20, 14),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TopMessage(name: " "),
+                  filterbutton(),
+                ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 15),
+              padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
               child: SearchBarWidget(),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               height: 200,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
+                children: const [
                   TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
                   TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
                   TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
                 ],
               ),
             )
-            // ListView(
-            //   scrollDirection: Axis.horizontal,
-            //   children: [
-            //      // Text('dasas'),
-            //      TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
-            //   ],
-            // ),
             ,Container(
               child: Container(
-                margin: EdgeInsets.only(top: 10, bottom: 0),
-                padding: EdgeInsets.only(right: 20, left: 20),
-                child: Row(
+                margin: const EdgeInsets.only(top: 10, bottom: 0),
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
@@ -82,22 +69,23 @@ class _mainsearchpageState extends State<mainsearchpage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               height: 290,
               child: ListView(
                 scrollDirection: Axis.vertical,
-                children: [
-                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
-                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
-                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
-                  LongBar(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
+                children: const [
+                  LongBar(foodName: 'Biriyani', price: '₹150', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'meals', price: '₹50', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'Dosa', price: '₹60', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'Geerice', price: '₹70', imageLocation: 'imageLocation')
                 ],
               ),
             )
           ],
         ),
-        bottomNavigationBar: CustomBottomNavBar(),
+        bottomNavigationBar: const CustomBottomNavBar(),
       ),
     );
   }
 }
+

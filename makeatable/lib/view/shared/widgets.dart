@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/util/constants/icon_constants.dart';
-
+enum ExerciseFilter { salty, sour, sweet, spicy }
 // Color
 final app = AppColors();
 
-// Welcome Message widget
+// Top message widget
 
 class TopMessage extends StatelessWidget {
   final String name;
@@ -156,7 +156,7 @@ class hBlock extends StatelessWidget {
   }
 }
 
-//  vertical sizedbox
+//  vertical sized box
 
 class wBlock extends StatelessWidget {
   final double width;
@@ -189,7 +189,7 @@ class TopRatedCard extends StatelessWidget {
       padding: EdgeInsets.only(left: 10, right: 10),
       child: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
+            image: const DecorationImage(
                 image: AssetImage('images/chicken_biriyani.jpeg'),
                 fit: BoxFit.cover),
             color: Color(0xaa000000),
@@ -236,33 +236,33 @@ class LongBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
+      padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('images/chicken_biriyani.jpeg'),
+                image: AssetImage(imageLocation),
                 fit: BoxFit.cover),
-            color: Color(0xaa000000),
+            color: const Color(0xaa000000),
             borderRadius: BorderRadius.circular(10)),
         // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
         width: 400, height: 75,
-        child: const Stack(
+        child:  Stack(
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(75, 15, 0, 5),
+              padding: const EdgeInsets.fromLTRB(75, 15, 0, 5),
               child: Text(
-                'foodName',
-                style: TextStyle(
+                foodName,
+                style: const TextStyle(
                     color: Colors.amber,
                     fontSize: 16,
                     fontWeight: FontWeight.w600),
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(75, 40, 0, 15),
+              padding: const EdgeInsets.fromLTRB(75, 40, 0, 15),
               child: Text(
-                'price',
-                style: TextStyle(
+                price,
+                style: const TextStyle(
                     color: Color.fromARGB(172, 255, 193, 7),
                     fontSize: 15,
                     fontWeight: FontWeight.w100),
@@ -274,6 +274,104 @@ class LongBar extends StatelessWidget {
     );
   }
 }
+
+//filter chip
+
+class FilterChipExample extends StatefulWidget {
+  const FilterChipExample({super.key});
+
+  @override
+  State<FilterChipExample> createState() => _FilterChipExampleState();
+}
+
+class _FilterChipExampleState extends State<FilterChipExample> {
+  Set<ExerciseFilter> filters = <ExerciseFilter>{};
+
+  @override
+  Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const SizedBox(height: 5.0),
+          Wrap(
+            spacing: 5.0,
+            children: ExerciseFilter.values.map((ExerciseFilter exercise) {
+              return FilterChip(
+                label: Text(exercise.name),
+                selected: filters.contains(exercise),
+                onSelected: (bool selected) {
+                  setState(() {
+                    if (selected) {
+                      filters.add(exercise);
+                    } else {
+                      filters.remove(exercise);
+                    }
+                  });
+                },
+              );
+            }).toList(),
+          ),
+          // const SizedBox(height: 10.0),
+          // Text(
+          //   'selected: ${filters.map((ExerciseFilter e) => e.name).join(', ')}',
+          //   style: textTheme.labelLarge,
+          //),
+        ],
+      ),
+    );
+  }
+}
+// range slider
+class RangeSliderExample extends StatefulWidget {
+  const RangeSliderExample({super.key});
+
+  @override
+  State<RangeSliderExample> createState() => _RangeSliderExampleState();
+}
+
+class _RangeSliderExampleState extends State<RangeSliderExample> {
+  RangeValues _currentRangeValues = const RangeValues(40, 80);
+
+  @override
+  Widget build(BuildContext context) {
+    return RangeSlider(
+      activeColor: Color(0xffE81514),
+      values: _currentRangeValues,
+      max: 100,
+      divisions: 100,
+      labels: RangeLabels(
+        _currentRangeValues.start.round().toString(),
+        _currentRangeValues.end.round().toString(),
+      ),
+      onChanged: (RangeValues values) {
+        setState(() {
+          _currentRangeValues = values;
+        });
+      },
+    );
+  }
+}
+
+class TabBar extends StatefulWidget {
+  const TabBar({super.key});
+
+  @override
+  State<TabBar> createState() => _TabBarState();
+}
+
+class _TabBarState extends State<TabBar> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+    );
+  }
+}
+
+
 //Search bar
 class SearchBarWidget extends StatelessWidget {
   @override

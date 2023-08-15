@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-class AppColors {
   Color mBackGround = const Color(0xfffff2f2);
   Color mBrown = const Color(0xff522903);
   Color mRed = const Color(0xffE81514);
@@ -15,4 +14,3 @@ class AppColors {
   // icon - colors
   Color mIconActive = const Color(0xffE81514);
   Color mIconInactive = const Color(0xFF667080);
-}

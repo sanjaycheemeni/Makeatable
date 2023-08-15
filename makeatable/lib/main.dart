@@ -13,6 +13,7 @@ void main() {
   // runApp(const Splash());
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: mRed, fontFamily: "Poppins"),
+    debugShowCheckedModeBanner: false,
     home: Splash(),
   ));
   // runApp(ForgotPassword());

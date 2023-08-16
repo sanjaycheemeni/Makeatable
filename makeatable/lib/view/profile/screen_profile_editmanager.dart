@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 
-class Editprofile extends StatefulWidget {
-  const Editprofile({super.key});
+class Editmanager extends StatefulWidget {
+  const Editmanager({super.key});
 
   @override
-  State<Editprofile> createState() => _EditprofileState();
+  State<Editmanager> createState() => _EditmanagerState();
 }
 
-class _EditprofileState extends State<Editprofile> {
+class _EditmanagerState extends State<Editmanager> {
   bool isVeg = true;
-  TextEditingController _nameController = TextEditingController(text: 'Aswin');
+  TextEditingController _nameController =
+      TextEditingController(text: 'Malabar Cafe');
   TextEditingController _phoneController =
-      TextEditingController(text: '9000008765');
+      TextEditingController(text: '9000008700');
 
   @override
   void dispose() {
@@ -24,7 +25,6 @@ class _EditprofileState extends State<Editprofile> {
 
   @override
   Widget build(BuildContext context) {
-    final ap = new AppColors();
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
@@ -53,7 +53,7 @@ class _EditprofileState extends State<Editprofile> {
                     "icons/check.svg",
                     width: 25,
                     height: 25,
-                    color: ap.mIconActive,
+                    color: mIconActive,
                   ),
                 ],
               ),
@@ -67,14 +67,14 @@ class _EditprofileState extends State<Editprofile> {
                   Positioned(
                     top: 20,
                     child: Image.asset(
-                      'images/img_1.png',
+                      'images/img_2.png',
                       width: 117,
                       height: 117,
                     ),
                   ),
                   Positioned(
-                    top: 90,
-                    left: 200,
+                    top: 100,
+                    left: 210,
                     child: GestureDetector(
                       onTap: () {},
                       child: Image.asset(
@@ -99,7 +99,7 @@ class _EditprofileState extends State<Editprofile> {
                     'NAME',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                   // Add spacing between the label and the TextField
@@ -112,14 +112,7 @@ class _EditprofileState extends State<Editprofile> {
                       hintText: 'Enter your name', // Placeholder text
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0.0),
-                    child: Container(
-                      height: 1.0,
-                      width: 280.0,
-                      color: ap.mIconInactive,
-                    ),
-                  ),
+
                   const SizedBox(
                     height: 20,
                   ),
@@ -127,7 +120,7 @@ class _EditprofileState extends State<Editprofile> {
                     'PHONE NUMBER',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                   TextField(
@@ -139,53 +132,18 @@ class _EditprofileState extends State<Editprofile> {
                       hintText: 'Enter your phone number', // Placeholder text
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0.0),
-                    child: Container(
-                      height: 1.0,
-                      width: 280.0,
-                      color: ap.mIconInactive,
-                    ),
-                  ),
+
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'PREFERENCE',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: ap.mSubtitle,
-                    ),
-                  ),
                 ],
               ),
-            ),
-            GestureDetector(
-              child: prefBlock(isVeg, 'Vegitarian       '),
-              onTap: () {
-                setState(() {
-                  print(isVeg);
-
-                  isVeg = true;
-                });
-              },
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            GestureDetector(
-              child: prefBlock(!isVeg, 'Non-vegitarian'),
-              onTap: () {
-                setState(() {
-                  isVeg = false;
-                });
-              },
             ),
             const SizedBox(
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 145, 10),
+              padding: EdgeInsets.fromLTRB(0, 10, 145, 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -193,19 +151,34 @@ class _EditprofileState extends State<Editprofile> {
                     'EMAIL ADDRESS',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                   Text(
                     'aswin@gmail.com',
                     style: TextStyle(
                       fontSize: 18,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(
+              height: 100,
+            ),
+            Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Log Out',
+                    style: TextStyle(fontSize: 23, color: Color(0xFFFFEECC)),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(351, 59),
+                      backgroundColor: Color(0xFFFA1111)),
+                )),
           ],
         )),
         bottomNavigationBar: bottomBar(0),
@@ -259,13 +232,13 @@ prefBlock(bool isSelected, String title) {
           height: 30,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: isSelected ? AppColors().mRedSahde : Color(0xFFA9A9A9),
+            color: isSelected ? mRedSahde : Color(0xFFA9A9A9),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  color: isSelected ? AppColors().mRed : Color(0xFF6a6a6a),
+                  color: isSelected ? mRed : Color(0xFF6a6a6a),
                   borderRadius: BorderRadius.circular(50)),
             ),
           ),

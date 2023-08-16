@@ -14,3 +14,6 @@ Color mFailedRed = Color(0xFFCC2121);
 // icon - colors
 Color mIconActive = const Color(0xffE81514);
 Color mIconInactive = const Color(0xFF667080);
+
+Color mRedSahde = Color.fromARGB(255, 216, 143, 143);
+Color mSubtitle = Color.fromARGB(255, 117, 117, 117);

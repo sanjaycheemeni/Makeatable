@@ -14,7 +14,9 @@ void main() {
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: mRed, fontFamily: "Poppins"),
     debugShowCheckedModeBanner: false,
-    home: Splash(),
+    home: HomeScreen(
+      isLogged: true,
+    ),
   ));
   // runApp(ForgotPassword());
   // runApp(CheckMail());

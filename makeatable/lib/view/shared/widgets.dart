@@ -203,7 +203,7 @@ class TopRatedCard extends StatelessWidget {
               child: Text(
                 foodName,
                 style: const TextStyle(
-                    color:Color(0xff1f1f1f),
+                    color:Color(0xffffffff),
                     fontSize: 17,
                     fontWeight: FontWeight.w600),
               ),
@@ -213,7 +213,7 @@ class TopRatedCard extends StatelessWidget {
               child: Text(
                 price,
                 style: const TextStyle(
-                    color: Color(0xff1f1f1f),
+                    color: Color(0xffffffff),
                     fontSize: 16,
                     fontWeight: FontWeight.w100),
               ),
@@ -266,10 +266,12 @@ class LongBar extends StatelessWidget {
                     fontWeight: FontWeight.w100),
               ),
             ),
-            Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            Padding(
+              padding: EdgeInsets.fromLTRB(6, 6, 0, 0),
               child: Container(
                 height: 60, width: 60,
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
                       image: ExactAssetImage(imageLocation),
                       fit: BoxFit.fitHeight,

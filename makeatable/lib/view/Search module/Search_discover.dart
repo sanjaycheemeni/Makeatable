@@ -40,9 +40,9 @@ class _mainsearchpageState extends State<mainsearchpage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: const [
-                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
-                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation'),
-                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'imageLocation')
+                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'images/Biriyani.webp'),
+                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'images/Beef Chilli.jpg'),
+                  TopRatedCard(foodName: 'foodName', price: 'price', imageLocation: 'images/BeefFry004.jpg')
                 ],
               ),
             )
@@ -74,9 +74,9 @@ class _mainsearchpageState extends State<mainsearchpage> {
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: const [
-                  LongBar(foodName: 'Biriyani', price: '₹150', imageLocation: 'imageLocation'),
-                  LongBar(foodName: 'meals', price: '₹50', imageLocation: 'imageLocation'),
-                  LongBar(foodName: 'Dosa', price: '₹60', imageLocation: 'imageLocation'),
+                  LongBar(foodName: 'Biriyani', price: '₹150', imageLocation: 'images/Biriyani.webp'),
+                  LongBar(foodName: 'meals', price: '₹50', imageLocation: 'images/Beef Chilli.jpg'),
+                  LongBar(foodName: 'Dosa', price: '₹60', imageLocation: 'images/Masala Dosa.jpg'),
                   LongBar(foodName: 'Geerice', price: '₹70', imageLocation: 'imageLocation')
                 ],
               ),

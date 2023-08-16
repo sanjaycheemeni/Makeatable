@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 
-class Editprofile extends StatefulWidget {
-  const Editprofile({super.key});
+class Editmanager extends StatefulWidget {
+  const Editmanager({super.key});
 
   @override
-  State<Editprofile> createState() => _EditprofileState();
+  State<Editmanager> createState() => _EditmanagerState();
 }
 
-class _EditprofileState extends State<Editprofile> {
+class _EditmanagerState extends State<Editmanager> {
   bool isVeg = true;
-  TextEditingController _nameController = TextEditingController(text: 'Aswin');
+  TextEditingController _nameController =
+      TextEditingController(text: 'Malabar Cafe');
   TextEditingController _phoneController =
-      TextEditingController(text: '9000008765');
+      TextEditingController(text: '9000008700');
 
   @override
   void dispose() {
@@ -31,7 +32,7 @@ class _EditprofileState extends State<Editprofile> {
             child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(28.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -54,7 +55,7 @@ class _EditprofileState extends State<Editprofile> {
                   GestureDetector(
                     onTap: () {},
                     child: const Icon(
-                      Icons.check,
+                      Icons.arrow_back_ios_outlined,
                       size: 30,
                     ),
                   ),
@@ -70,14 +71,14 @@ class _EditprofileState extends State<Editprofile> {
                   Positioned(
                     top: 20,
                     child: Image.asset(
-                      'images/img_1.png',
+                      'images/img_2.png',
                       width: 117,
                       height: 117,
                     ),
                   ),
                   Positioned(
-                    top: 90,
-                    left: 200,
+                    top: 100,
+                    left: 210,
                     child: GestureDetector(
                       onTap: () {},
                       child: Image.asset(
@@ -139,42 +140,11 @@ class _EditprofileState extends State<Editprofile> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'PREFERENCE',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: ap.mSubtitle,
-                    ),
-                  ),
                 ],
               ),
             ),
-            GestureDetector(
-              child: prefBlock(isVeg, 'Vegitarian       '),
-              onTap: () {
-                setState(() {
-                  print(isVeg);
-
-                  isVeg = true;
-                });
-              },
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            GestureDetector(
-              child: prefBlock(!isVeg, 'Non-vegitarian'),
-              onTap: () {
-                setState(() {
-                  isVeg = false;
-                });
-              },
-            ),
-            const SizedBox(
-              height: 10,
-            ),
             Padding(
-              padding: EdgeInsets.fromLTRB(30, 10, 145, 10),
+              padding: EdgeInsets.fromLTRB(30, 10, 130, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -195,6 +165,21 @@ class _EditprofileState extends State<Editprofile> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 80,
+            ),
+            Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Log Out',
+                    style: TextStyle(fontSize: 23, color: Color(0xFFFFEECC)),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(351, 59),
+                      backgroundColor: Color(0xFFFA1111)),
+                )),
           ],
         )),
         bottomNavigationBar: bottomBar(0),
@@ -225,44 +210,41 @@ Widget bottomBar(index) {
 }
 
 prefBlock(bool isSelected, String title) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-      width: 307,
-      height: 56,
-      decoration: BoxDecoration(
-        color: Color(0xFFD9D9D9),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const SizedBox(
-            width: 20,
+  return Container(
+    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+    width: 307,
+    height: 56,
+    decoration: BoxDecoration(
+      color: Color(0xFFD9D9D9),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const SizedBox(
+          width: 20,
+        ),
+        Text(title),
+        const SizedBox(
+          width: 140,
+        ),
+        Container(
+          width: 30,
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: isSelected ? AppColors().mRedSahde : Color(0xFFA9A9A9),
           ),
-          Text(title),
-          const SizedBox(
-            width: 140,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: isSelected ? AppColors().mRed : Color(0xFF6a6a6a),
+                  borderRadius: BorderRadius.circular(50)),
+            ),
           ),
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: isSelected ? AppColors().mRedSahde : Color(0xFFA9A9A9),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: isSelected ? AppColors().mRed : Color(0xFF6a6a6a),
-                    borderRadius: BorderRadius.circular(50)),
-              ),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     ),
   );
 }

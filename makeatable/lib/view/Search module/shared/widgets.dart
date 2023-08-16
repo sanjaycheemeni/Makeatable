@@ -1,3 +1,7 @@
+import 'dart:ui';
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -41,7 +45,7 @@ class TitleHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.only(top: 10),
       child: Text(
         'Recent',
@@ -60,9 +64,6 @@ class ReminderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color iconColor = const Color.fromARGB(255, 255, 220, 220);
-    Color labelColor = const Color.fromARGB(255, 255, 250, 250);
-
     return Container(
       padding: const EdgeInsets.fromLTRB(25, 0, 25, 10),
       width: 450,
@@ -169,7 +170,7 @@ class TopRatedCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10)),
         // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
         width: 200,
-        child: const Stack(
+        child: Stack(
           children: [
             Padding(
               padding: EdgeInsets.fromLTRB(15, 115, 0, 5),
@@ -215,7 +216,7 @@ class LongBar extends StatelessWidget {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(imageLocation), fit: BoxFit.cover),
-            color: const Color(0xaa000000),
+            color: Color(0xaa000000),
             borderRadius: BorderRadius.circular(10)),
         // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
         width: 400, height: 75,
@@ -235,7 +236,7 @@ class LongBar extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(75, 40, 0, 15),
               child: Text(
                 price,
-                style: const TextStyle(
+                style: TextStyle(
                     color: Color.fromARGB(172, 255, 193, 7),
                     fontSize: 15,
                     fontWeight: FontWeight.w100),

@@ -7,6 +7,7 @@ class Favourites extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ap = new AppColors();
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
@@ -18,10 +19,12 @@ class Favourites extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(
-                    "icons/arrow-left.svg",
-                    width: 25,
-                    height: 25,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                    ),
                   ),
                   const SizedBox(width: 6),
                   const Text(
@@ -35,7 +38,7 @@ class Favourites extends StatelessWidget {
               padding: const EdgeInsets.all(14.8),
               child: MaterialButton(
                 height: 60,
-                color: mYellow,
+                color: ap.mbar,
                 onPressed: () {},
                 child: Row(
                   children: [
@@ -44,11 +47,11 @@ class Favourites extends StatelessWidget {
                       children: [
                         Text(
                           'Malabar Restaurant',
-                          style: TextStyle(fontSize: 20, color: mBlack),
+                          style: TextStyle(fontSize: 20, color: ap.mBlack),
                         ),
                         Text(
                           'palazhi, Calicut',
-                          style: TextStyle(fontSize: 15, color: mYellow),
+                          style: TextStyle(fontSize: 15, color: ap.mbarr),
                         ),
                       ],
                     ),
@@ -68,7 +71,7 @@ class Favourites extends StatelessWidget {
               padding: const EdgeInsets.all(14.8),
               child: MaterialButton(
                 height: 60,
-                color: mYellow,
+                color: ap.mbar,
                 onPressed: () {},
                 child: Row(
                   children: [
@@ -77,11 +80,11 @@ class Favourites extends StatelessWidget {
                       children: [
                         Text(
                           'Malabar Restaurant',
-                          style: TextStyle(fontSize: 20, color: mBlack),
+                          style: TextStyle(fontSize: 20, color: ap.mBlack),
                         ),
                         Text(
                           'palazhi, Calicut',
-                          style: TextStyle(fontSize: 15, color: mYellow),
+                          style: TextStyle(fontSize: 15, color: ap.mbarr),
                         ),
                       ],
                     ),
@@ -101,7 +104,7 @@ class Favourites extends StatelessWidget {
               padding: const EdgeInsets.all(14.8),
               child: MaterialButton(
                 height: 60,
-                color: mYellow,
+                color: ap.mbar,
                 onPressed: () {},
                 child: Row(
                   children: [
@@ -110,11 +113,11 @@ class Favourites extends StatelessWidget {
                       children: [
                         Text(
                           'Malabar Restaurant',
-                          style: TextStyle(fontSize: 20, color: mBlack),
+                          style: TextStyle(fontSize: 20, color: ap.mBlack),
                         ),
                         Text(
                           'palazhi, Calicut',
-                          style: TextStyle(fontSize: 15, color: mYellow),
+                          style: TextStyle(fontSize: 15, color: ap.mbarr),
                         ),
                       ],
                     ),
@@ -134,7 +137,7 @@ class Favourites extends StatelessWidget {
               padding: const EdgeInsets.all(14.8),
               child: MaterialButton(
                 height: 60,
-                color: mYellow,
+                color: ap.mbar,
                 onPressed: () {},
                 child: Row(
                   children: [
@@ -143,11 +146,11 @@ class Favourites extends StatelessWidget {
                       children: [
                         Text(
                           'Malabar Restaurant',
-                          style: TextStyle(fontSize: 20, color: mBlack),
+                          style: TextStyle(fontSize: 20, color: ap.mBlack),
                         ),
                         Text(
                           'palazhi, Calicut',
-                          style: TextStyle(fontSize: 15, color: mYellow),
+                          style: TextStyle(fontSize: 15, color: ap.mbarr),
                         ),
                       ],
                     ),

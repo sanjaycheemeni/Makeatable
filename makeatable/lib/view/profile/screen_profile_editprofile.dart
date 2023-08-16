@@ -24,21 +24,24 @@ class _EditprofileState extends State<Editprofile> {
 
   @override
   Widget build(BuildContext context) {
+    final ap = new AppColors();
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-            child: Column(
+            child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(28.0),
+              padding: const EdgeInsets.all(20.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(
-                    "icons/arrow-left.svg",
-                    width: 25,
-                    height: 25,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                    ),
                   ),
                   const SizedBox(width: 6),
                   const Text(
@@ -48,11 +51,12 @@ class _EditprofileState extends State<Editprofile> {
                   const SizedBox(
                     width: 150,
                   ),
-                  SvgPicture.asset(
-                    "icons/check.svg",
-                    width: 25,
-                    height: 25,
-                    color: mIconActive,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.check,
+                      size: 30,
+                    ),
                   ),
                 ],
               ),
@@ -98,7 +102,7 @@ class _EditprofileState extends State<Editprofile> {
                     'NAME',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                   // Add spacing between the label and the TextField
@@ -111,14 +115,6 @@ class _EditprofileState extends State<Editprofile> {
                       hintText: 'Enter your name', // Placeholder text
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0.0),
-                    child: Container(
-                      height: 1.0,
-                      width: 280.0,
-                      color: mIconInactive,
-                    ),
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -126,7 +122,7 @@ class _EditprofileState extends State<Editprofile> {
                     'PHONE NUMBER',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                   TextField(
@@ -138,14 +134,6 @@ class _EditprofileState extends State<Editprofile> {
                       hintText: 'Enter your phone number', // Placeholder text
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0.0),
-                    child: Container(
-                      height: 1.0,
-                      width: 280.0,
-                      color: mIconInactive,
-                    ),
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -153,7 +141,7 @@ class _EditprofileState extends State<Editprofile> {
                     'PREFERENCE',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                 ],
@@ -184,7 +172,7 @@ class _EditprofileState extends State<Editprofile> {
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 145, 10),
+              padding: EdgeInsets.fromLTRB(30, 10, 145, 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -192,14 +180,14 @@ class _EditprofileState extends State<Editprofile> {
                     'EMAIL ADDRESS',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                   Text(
                     'aswin@gmail.com',
                     style: TextStyle(
                       fontSize: 18,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                 ],
@@ -235,41 +223,44 @@ Widget bottomBar(index) {
 }
 
 prefBlock(bool isSelected, String title) {
-  return Container(
-    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-    width: 307,
-    height: 56,
-    decoration: BoxDecoration(
-      color: Color(0xFFD9D9D9),
-      borderRadius: BorderRadius.circular(10),
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const SizedBox(
-          width: 20,
-        ),
-        Text(title),
-        const SizedBox(
-          width: 140,
-        ),
-        Container(
-          width: 30,
-          height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: isSelected ? mRedSahde : Color(0xFFA9A9A9),
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      width: 307,
+      height: 56,
+      decoration: BoxDecoration(
+        color: Color(0xFFD9D9D9),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            width: 20,
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: isSelected ? mRed : Color(0xFF6a6a6a),
-                  borderRadius: BorderRadius.circular(50)),
+          Text(title),
+          const SizedBox(
+            width: 140,
+          ),
+          Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: isSelected ? AppColors().mRedSahde : Color(0xFFA9A9A9),
             ),
-          ),
-        )
-      ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: isSelected ? AppColors().mRed : Color(0xFF6a6a6a),
+                    borderRadius: BorderRadius.circular(50)),
+              ),
+            ),
+          )
+        ],
+      ),
     ),
   );
 }

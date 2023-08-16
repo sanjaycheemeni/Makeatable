@@ -23,7 +23,7 @@ class CatogaryCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 opacity: .9),
           ),
-          child: const Text(
+          child: Text(
             'Juices',
             style: TextStyle(
                 color: Color.fromRGBO(228, 228, 228, 1),

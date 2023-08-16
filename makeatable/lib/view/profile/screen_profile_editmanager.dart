@@ -25,10 +25,11 @@ class _EditmanagerState extends State<Editmanager> {
 
   @override
   Widget build(BuildContext context) {
+    final ap = new AppColors();
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-            child: Column(
+            child: ListView(
           children: [
             Padding(
               padding: const EdgeInsets.all(28.0),
@@ -36,10 +37,12 @@ class _EditmanagerState extends State<Editmanager> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(
-                    "icons/arrow-left.svg",
-                    width: 25,
-                    height: 25,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                    ),
                   ),
                   const SizedBox(width: 6),
                   const Text(
@@ -49,11 +52,12 @@ class _EditmanagerState extends State<Editmanager> {
                   const SizedBox(
                     width: 150,
                   ),
-                  SvgPicture.asset(
-                    "icons/check.svg",
-                    width: 25,
-                    height: 25,
-                    color: mIconActive,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                    ),
                   ),
                 ],
               ),
@@ -99,7 +103,7 @@ class _EditmanagerState extends State<Editmanager> {
                     'NAME',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                   // Add spacing between the label and the TextField
@@ -120,7 +124,7 @@ class _EditmanagerState extends State<Editmanager> {
                     'PHONE NUMBER',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                   TextField(
@@ -139,11 +143,8 @@ class _EditmanagerState extends State<Editmanager> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 10, 145, 10),
+              padding: EdgeInsets.fromLTRB(30, 10, 130, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -151,21 +152,21 @@ class _EditmanagerState extends State<Editmanager> {
                     'EMAIL ADDRESS',
                     style: TextStyle(
                       fontSize: 13,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                   Text(
                     'aswin@gmail.com',
                     style: TextStyle(
                       fontSize: 18,
-                      color: mSubtitle,
+                      color: ap.mSubtitle,
                     ),
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: 100,
+              height: 80,
             ),
             Padding(
                 padding: const EdgeInsets.all(14.0),
@@ -232,13 +233,13 @@ prefBlock(bool isSelected, String title) {
           height: 30,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: isSelected ? mRedSahde : Color(0xFFA9A9A9),
+            color: isSelected ? AppColors().mRedSahde : Color(0xFFA9A9A9),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  color: isSelected ? mRed : Color(0xFF6a6a6a),
+                  color: isSelected ? AppColors().mRed : Color(0xFF6a6a6a),
                   borderRadius: BorderRadius.circular(50)),
             ),
           ),

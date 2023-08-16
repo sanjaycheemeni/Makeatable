@@ -18,10 +18,12 @@ class Manager extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset(
-                    "icons/arrow-left.svg",
-                    width: 31,
-                    height: 31,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                    ),
                   ),
                 ],
               ),
@@ -54,7 +56,7 @@ class Manager extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
+            Text(
               'malabar@gmail.com',
               style: TextStyle(fontSize: 15, color: Color(0xFFBCBCBC)),
             ),

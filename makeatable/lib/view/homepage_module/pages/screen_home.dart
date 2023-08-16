@@ -1,6 +1,5 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../widgets/widget_catogerycard.dart';
 import '../../widgets/widget_custombottombar.dart';
 import '../../widgets/widget_remindercard.dart';

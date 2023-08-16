@@ -18,15 +18,19 @@ class Userhistory extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset(
-                    "icons/arrow-left.svg",
-                    width: 25,
-                    height: 25,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      size: 30,
+                    ),
                   ),
-                  SvgPicture.asset(
-                    "icons/log-out.svg",
-                    width: 25,
-                    height: 25,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Icon(
+                      Icons.logout_outlined,
+                      size: 30,
+                    ),
                   ),
                 ],
               ),
@@ -158,7 +162,7 @@ class Userhistory extends StatelessWidget {
                         height: 80,
                       ),
                       Text(
-                        'Arya Cafe Cafe',
+                        'Paris Hostel',
                         style: TextStyle(
                           color: Color(0xFF000000), // Adjust the text color
                         ),
@@ -171,7 +175,7 @@ class Userhistory extends StatelessWidget {
                           color: Color(0xFF000000),
                         ),
                       ),
-                      Column(
+                      Row(
                         children: [
                           Row(
                             children: [

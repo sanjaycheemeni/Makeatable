@@ -269,9 +269,9 @@ class LongBar extends StatelessWidget {
             Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: Container(
                 height: 60, width: 60,
-                  decoration: new BoxDecoration(
-                    image: new DecorationImage(
-                      image: ExactAssetImage('assets/example.png'),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: ExactAssetImage(imageLocation),
                       fit: BoxFit.fitHeight,
                     ),
                   )

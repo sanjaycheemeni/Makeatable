@@ -58,9 +58,11 @@ class searchbar extends StatelessWidget {
 //top rated card
 class TopRatedCard extends StatelessWidget {
   final String foodName, price, imageLocation;
+  final Function() onclick;
   const TopRatedCard(
       {required this.foodName,
         required this.price,
+        required this.onclick,
         required this.imageLocation,
         super.key});
 
@@ -71,7 +73,7 @@ class TopRatedCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(imageLocation),
+                image: AssetImage(imageLocation),opacity: .4,
                 fit: BoxFit.cover),
             color: Color(0xaa000000),
             borderRadius: BorderRadius.circular(12)),
@@ -84,7 +86,8 @@ class TopRatedCard extends StatelessWidget {
               child: Text(
                 foodName,
                 style: TextStyle(
-                    color: Colors.amber,
+                  backgroundColor: Color(0x00000094),
+                    color: Colors.amber.shade400,
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),

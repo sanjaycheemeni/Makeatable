@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
 import 'package:makeatable/util/constants/color_constants.dart';
@@ -36,3 +37,11 @@ void main() {
 }
 
 >>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
+=======
+import 'package:makeatable/view/AddButton.dart';
+import 'package:makeatable/view/screen_managerhome.dart';
+
+main(){
+  runApp(Managerhome ());
+}
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445

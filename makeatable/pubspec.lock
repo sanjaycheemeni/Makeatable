@@ -2,8 +2,11 @@
 # See https://dart.dev/tools/pub/glossary#lockfile
 packages:
 <<<<<<< HEAD
+<<<<<<< HEAD
   archive:
 =======
+=======
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
   args:
     dependency: transitive
     description:
@@ -101,7 +104,10 @@ packages:
     version: "0.13.1"
 =======
     version: "2.0.2"
+<<<<<<< HEAD
 >>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
+=======
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
   flutter_svg:
     dependency: "direct main"
     description:
@@ -110,6 +116,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.7"
+<<<<<<< HEAD
 <<<<<<< HEAD
   image:
     dependency: transitive
@@ -120,6 +127,8 @@ packages:
     source: hosted
     version: "4.0.17"
 =======
+=======
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -183,6 +192,7 @@ packages:
     source: hosted
     version: "5.4.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
   pointycastle:
     dependency: transitive
     description:
@@ -193,6 +203,8 @@ packages:
     version: "3.7.3"
 =======
 >>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
+=======
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
   sky_engine:
     dependency: transitive
     description: flutter
@@ -233,7 +245,10 @@ packages:
     version: "1.3.2"
 =======
     version: "0.5.1"
+<<<<<<< HEAD
 >>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
+=======
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
   vector_graphics:
     dependency: transitive
     description:
@@ -275,6 +290,7 @@ packages:
     source: hosted
     version: "6.3.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
   yaml:
     dependency: transitive
     description:
@@ -285,6 +301,8 @@ packages:
     version: "3.1.2"
 =======
 >>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
+=======
+>>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
 sdks:
   dart: ">=3.0.6 <4.0.0"
   flutter: ">=3.7.0-0"

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_check_mail.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
@@ -24,3 +26,13 @@ void main() {
   // runApp(RegisterNow());
   // runApp(Otp());
 }
+=======
+import 'package:makeatable/view/product_list/product_list.dart';
+import 'package:makeatable/view/menu/page/menu.dart';
+
+
+void main() {
+  runApp( ProductList());
+}
+
+>>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8

@@ -17,7 +17,7 @@ class _mainsearchpageState extends State<mainsearchpage> {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Poppins"),
       home: Scaffold(
-        backgroundColor: const Color(0xfffff2f2),
+        backgroundColor: const Color(0xfffff1f1),
         body: Column(
           children: [
             const Padding(

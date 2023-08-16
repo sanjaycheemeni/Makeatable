@@ -175,6 +175,56 @@ class wBlock extends StatelessWidget {
 
 // Top rated food card
 
+// class TopRatedCard extends StatelessWidget {
+//   final String foodName, price, imageLocation;
+//   const TopRatedCard(
+//       {required this.foodName,
+//         required this.price,
+//         required this.imageLocation,
+//         super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: EdgeInsets.only(left: 10, right: 10),
+//       child: Container(
+//         decoration: BoxDecoration(
+//             image: const DecorationImage(
+//                 image: AssetImage(imageLocation),
+//                 fit: BoxFit.cover),
+//             color: Color(0xaa000000),
+//             borderRadius: BorderRadius.circular(10)),
+//         // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
+//         width: 200,
+//         child: const Stack(
+//           children: [
+//             Padding(
+//               padding: EdgeInsets.fromLTRB(15, 115, 0, 5),
+//               child: Text(
+//                 foodName,
+//                 style: TextStyle(
+//                     color: Colors.amber,
+//                     fontSize: 18,
+//                     fontWeight: FontWeight.w600),
+//               ),
+//             ),
+//             Padding(
+//               padding: EdgeInsets.fromLTRB(15, 140, 0, 15),
+//               child: Text(
+//                 price,
+//                 style: TextStyle(
+//                     color: Color.fromARGB(172, 255, 193, 7),
+//                     fontSize: 17,
+//                     fontWeight: FontWeight.w100),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//Long Bar
 class TopRatedCard extends StatelessWidget {
   final String foodName, price, imageLocation;
   const TopRatedCard(
@@ -186,35 +236,35 @@ class TopRatedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 10,right: 10),
       child: Container(
         decoration: BoxDecoration(
-            image: const DecorationImage(
-                image: AssetImage('images/chicken_biriyani.jpeg'),
+            border: Border.all(),
+            image: DecorationImage(
+                image: AssetImage(imageLocation),
                 fit: BoxFit.cover),
-            color: Color(0xaa000000),
+            color: const Color(0xfffff2f2),
             borderRadius: BorderRadius.circular(10)),
-        // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
-        width: 200,
-        child: const Stack(
+        width: 200,height: 200,
+        child:  Stack(
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(15, 115, 0, 5),
+              padding: const EdgeInsets.fromLTRB(15, 140, 0, 15),
               child: Text(
-                'foodName',
-                style: TextStyle(
-                    color: Colors.amber,
-                    fontSize: 18,
+                foodName,
+                style: const TextStyle(
+                    color:Color(0xff1f1f1f),
+                    fontSize: 17,
                     fontWeight: FontWeight.w600),
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(15, 140, 0, 15),
+              padding: const EdgeInsets.fromLTRB(15, 160, 0, 15),
               child: Text(
-                'price',
-                style: TextStyle(
-                    color: Color.fromARGB(172, 255, 193, 7),
-                    fontSize: 17,
+                price,
+                style: const TextStyle(
+                    color: Color(0xff1f1f1f),
+                    fontSize: 16,
                     fontWeight: FontWeight.w100),
               ),
             ),
@@ -224,6 +274,7 @@ class TopRatedCard extends StatelessWidget {
     );
   }
 }
+
 //Long Bar
 class LongBar extends StatelessWidget {
   final String foodName, price, imageLocation;
@@ -239,12 +290,12 @@ class LongBar extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
       child: Container(
         decoration: BoxDecoration(
+          border: Border.all(),
             image: DecorationImage(
                 image: AssetImage(imageLocation),
                 fit: BoxFit.cover),
-            color: const Color(0xaa000000),
+            color: const Color(0xfffff2f2),
             borderRadius: BorderRadius.circular(10)),
-        // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
         width: 400, height: 75,
         child:  Stack(
           children: [
@@ -253,7 +304,7 @@ class LongBar extends StatelessWidget {
               child: Text(
                 foodName,
                 style: const TextStyle(
-                    color: Colors.amber,
+                    color:Color(0xff1f1f1f),
                     fontSize: 16,
                     fontWeight: FontWeight.w600),
               ),
@@ -263,11 +314,66 @@ class LongBar extends StatelessWidget {
               child: Text(
                 price,
                 style: const TextStyle(
-                    color: Color.fromARGB(172, 255, 193, 7),
+                    color: Color(0xff1f1f1f),
                     fontSize: 15,
                     fontWeight: FontWeight.w100),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// long-bar2
+class LongBar2 extends StatelessWidget {
+  final String foodName, price, imageLocation;
+  const LongBar2(
+      {required this.foodName,
+        required this.price,
+        required this.imageLocation,
+        super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border.all(),
+            image: DecorationImage(
+                image: AssetImage(imageLocation),
+                fit: BoxFit.fitHeight),
+            color: const Color(0xfffff2f2),
+            borderRadius: BorderRadius.circular(10)),
+        width: 400, height: 75,
+        child:  Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(75, 15, 0, 5),
+              child: Text(
+                foodName,
+                style: const TextStyle(
+                    color:Color(0xff1f1f1f),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(75, 40, 0, 15),
+              child: Text(
+                price,
+                style: const TextStyle(
+                    color: Color(0xff1f1f1f),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w100),
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.fromLTRB(300, 20, 20, 20),
+
+            )
           ],
         ),
       ),
@@ -314,16 +420,13 @@ class _FilterChipExampleState extends State<FilterChipExample> {
               );
             }).toList(),
           ),
-          // const SizedBox(height: 10.0),
-          // Text(
-          //   'selected: ${filters.map((ExerciseFilter e) => e.name).join(', ')}',
-          //   style: textTheme.labelLarge,
-          //),
         ],
       ),
     );
   }
 }
+
+
 // range slider
 class RangeSliderExample extends StatefulWidget {
   const RangeSliderExample({super.key});
@@ -351,22 +454,6 @@ class _RangeSliderExampleState extends State<RangeSliderExample> {
           _currentRangeValues = values;
         });
       },
-    );
-  }
-}
-
-class TabBar extends StatefulWidget {
-  const TabBar({super.key});
-
-  @override
-  State<TabBar> createState() => _TabBarState();
-}
-
-class _TabBarState extends State<TabBar> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-
     );
   }
 }

@@ -12,8 +12,8 @@ class ReminderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color iconColor = const Color.fromARGB(255, 255, 220, 220);
-    Color labelColor = const Color.fromARGB(255, 255, 250, 250);
+    final iconColor = Color.fromARGB(255, 255, 220, 220);
+    final labelColor = Color.fromARGB(255, 255, 250, 250);
 
     return Padding(
       padding: const EdgeInsets.only(left: 15, top: 5, right: 15),

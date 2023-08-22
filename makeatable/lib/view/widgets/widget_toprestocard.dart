@@ -13,15 +13,12 @@ class TopRestocard extends StatelessWidget {
       child: Container(
         width: 290,
         height: 80,
-        decoration: BoxDecoration(
-            boxShadow: const [
-              BoxShadow(
-                  color: Color.fromARGB(255, 202, 202, 202),
-                  spreadRadius: 1,
-                  blurRadius: 4)
-            ],
-            color: const Color(0xffFBEFE4),
-            borderRadius: BorderRadius.circular(5)),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              color: Color.fromARGB(255, 202, 202, 202),
+              spreadRadius: 1,
+              blurRadius: 4)
+        ], color: Color(0xffFBEFE4), borderRadius: BorderRadius.circular(5)),
         child: Padding(
           padding: const EdgeInsets.only(left: 15),
           child: Column(

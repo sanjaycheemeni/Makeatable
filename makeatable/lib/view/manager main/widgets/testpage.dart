@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:makeatable/model/homepage.dart';
 import 'package:makeatable/view/widgets.dart';
+import 'package:makeatable/view/widgets/widget_custombottombar.dart';
 
-import 'homepage_module/widgets/widget_custombottombar.dart';
-import 'homepage_module/widgets/widget_remindercard.dart';
-import 'homepage_module/widgets/widget_sizedblock.dart';
-import 'homepage_module/widgets/widget_titleheading.dart';
-import 'homepage_module/widgets/widget_topratedcard.dart';
-import 'homepage_module/widgets/widget_toprestocard.dart';
-import 'homepage_module/widgets/widget_welcomemessage.dart';
+import '../../Search module/shared/widgets.dart';
+import '../../widgets/widget_catogerycard.dart';
+import '../../widgets/widget_toprestocard.dart';
+import '../../widgets/widget_welcomemessage.dart';
 
 class TestPage extends StatelessWidget {
   const TestPage({super.key});
@@ -111,7 +109,8 @@ class TestPage extends StatelessWidget {
               hBlock(10)
             ],
           ), // Catagory section
-          bottomNavigationBar: const CustomBottomNavBar(selected: 0),
+          bottomNavigationBar:
+              const CustomBottomNavBar(selected: 0, isLogged: true),
         ));
   }
 }

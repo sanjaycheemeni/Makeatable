@@ -15,7 +15,7 @@ class TitleHeading extends StatelessWidget {
       padding: const EdgeInsets.only(left: 35, top: 10),
       child: Text(
         heading,
-        style: const TextStyle(color: Color.fromARGB(223, 109, 109, 109)),
+        style: TextStyle(color: Color.fromARGB(223, 109, 109, 109)),
       ),
     );
   }

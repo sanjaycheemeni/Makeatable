@@ -38,6 +38,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
+  flutter_otp_text_field: ^1.1.1
+  otp: ^3.1.4
+  get: ^4.6.5
+  date_picker_timeline: ^1.2.5
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
@@ -88,24 +92,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-<<<<<<< HEAD
-<<<<<<< HEAD
   assets:
     - icons/
     - images/
-    # - icons/
-=======
-
-  assets:
-    - images/
-
->>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
-=======
-  assets:
-    - icons/
-    - images/
-
->>>>>>> 48745fa9e13148f96c501dc13c1a4508078a0445
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -124,20 +113,18 @@ flutter:
         - asset: font/Poppins-Regular.ttf
         - asset: font/Poppins-Italic.ttf
           style: italic
-<<<<<<< HEAD
-=======
+
 #  fonts:
 #    - family: Poppins
 #      fonts:
 #        - asset: font/Poppins-Regular.ttf
 #        - asset: font/Poppins-Italic.ttf
 #          style: italic
->>>>>>> bd88b72cbebcc644795e60f2f68ba8ed970045f8
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+#   - family: Trajan Pro
+#     fonts:
+#       - asset: fonts/TrajanPro.ttf
+#       - asset: fonts/TrajanPro_Bold.ttf
+#         weight: 700
+#
+# For details regarding fonts from package dependencies,
+# see https://flutter.dev/custom-fonts/#from-packages

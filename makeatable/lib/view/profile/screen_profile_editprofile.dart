@@ -24,7 +24,6 @@ class _EditprofileState extends State<Editprofile> {
 
   @override
   Widget build(BuildContext context) {
-    final ap = new AppColors();
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
@@ -102,7 +101,7 @@ class _EditprofileState extends State<Editprofile> {
                     'NAME',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                   // Add spacing between the label and the TextField
@@ -122,7 +121,7 @@ class _EditprofileState extends State<Editprofile> {
                     'PHONE NUMBER',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                   TextField(
@@ -141,7 +140,7 @@ class _EditprofileState extends State<Editprofile> {
                     'PREFERENCE',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                 ],
@@ -180,14 +179,14 @@ class _EditprofileState extends State<Editprofile> {
                     'EMAIL ADDRESS',
                     style: TextStyle(
                       fontSize: 13,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                   Text(
                     'aswin@gmail.com',
                     style: TextStyle(
                       fontSize: 18,
-                      color: ap.mSubtitle,
+                      color: mSubtitle,
                     ),
                   ),
                 ],
@@ -248,13 +247,13 @@ prefBlock(bool isSelected, String title) {
             height: 30,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: isSelected ? AppColors().mRedSahde : Color(0xFFA9A9A9),
+              color: isSelected ? mRedSahde : Color(0xFFA9A9A9),
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration: BoxDecoration(
-                    color: isSelected ? AppColors().mRed : Color(0xFF6a6a6a),
+                    color: isSelected ? mRed : Color(0xFF6a6a6a),
                     borderRadius: BorderRadius.circular(50)),
               ),
             ),

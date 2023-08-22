@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_forgot_password.dart';
 import 'package:makeatable/view/auth_module/pages/screen_register_now.dart';
@@ -21,7 +20,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff0f0f0),
+      backgroundColor: Color(0xfff0f0f0),
       body: SafeArea(
         child: Center(
           child: ListView(

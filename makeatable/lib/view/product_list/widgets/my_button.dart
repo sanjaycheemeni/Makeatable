@@ -1,30 +1,22 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:makeatable/util/constants/color_constants.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton(
-      {super.key, required this.onTap, required this.clr, required this.text});
+  const MyButton({super.key, required this.onTap});
   final Function()? onTap;
-  final clr;
-  final String text;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(13),
         margin: EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-          color: clr,
-          borderRadius: BorderRadius.circular(5),
+          color: Color(0xffff0000),
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: Center(
+        child: const Center(
           child: Text(
-            text,
+            'Book Seat',
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
           ),

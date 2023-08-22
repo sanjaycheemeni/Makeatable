@@ -20,13 +20,13 @@ class TopRatedCard extends StatelessWidget {
         height: 280,
         width: 290,
         decoration: BoxDecoration(
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                   color: Color.fromARGB(255, 202, 202, 202),
                   spreadRadius: 1,
                   blurRadius: 4)
             ],
-            color: const Color.fromARGB(255, 255, 255, 255),
+            color: Color.fromARGB(255, 255, 255, 255),
             borderRadius: BorderRadius.circular(8)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
@@ -44,7 +44,7 @@ class TopRatedCard extends StatelessWidget {
               width: 40,
               height: 25,
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 53, 100, 255),
+                  color: Color.fromARGB(255, 53, 100, 255),
                   borderRadius: BorderRadius.circular(5)),
               child:
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -69,7 +69,7 @@ class TopRatedCard extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 10),
             child: Text(
               'Paragon Hotel',

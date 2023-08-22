@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../product_list/widgets/my_button.dart';
+import 'package:makeatable/util/constants/color_constants.dart';
+
+import '../../auth_module/widgets/my_button.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -40,6 +42,8 @@ class Menu extends StatelessWidget {
               ),
               SizedBox(height: 20),
               MyButton(
+                clr: mRed,
+                text: '--',
                 onTap: signUserIn,
               ),
             ]),

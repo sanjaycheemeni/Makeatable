@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:makeatable/view/Search%20module/shared/widgets.dart';
-import 'package:mirai_dropdown_menu/mirai_dropdown_menu.dart';
-
 import 'Dropdownmenu.dart';
 import 'DropdownmenuLOC.dart';
 

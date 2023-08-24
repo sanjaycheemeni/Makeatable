@@ -2,7 +2,6 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:makeatable/model/homepage.dart';
-import 'package:makeatable/view/widgets.dart';
 import 'package:makeatable/view/widgets/widget_custombottombar.dart';
 
 import '../../Search module/shared/widgets.dart';

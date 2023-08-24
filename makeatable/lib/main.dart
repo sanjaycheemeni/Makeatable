@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
-import 'package:makeatable/view/profile/screen_profile_main.dart';
+import 'package:makeatable/view/Onckick.dart';
+import 'package:makeatable/view/auth_module/pages/screen_manager_register.dart';
 
 void main() {
   // runApp(const Splash());
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: mRed, fontFamily: "Poppins"),
     debugShowCheckedModeBanner: false,
-    home: BookingScreen(),
+    home: Managerhome(),
   ));
-  // runApp(ForgotPassword());
-  // runApp(CheckMail());
-  // runApp(ResetPassword());
-  // runApp(RegisterNow());
-  // runApp(Otp());
 }

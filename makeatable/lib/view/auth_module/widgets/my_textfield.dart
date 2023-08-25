@@ -234,3 +234,39 @@ class _ImagepickerState extends State<Imagepicker> {
     );
   }
 }
+
+class NumberInputField extends StatelessWidget {
+  final hint;
+  final tc;
+  final value;
+  const NumberInputField(
+      {required this.tc, required this.hint, super.key, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    // TextEditingController tc = controller;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: TextField(
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+          FilteringTextInputFormatter.digitsOnly
+        ],
+        controller: tc,
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: TextStyle(color: Colors.grey.shade500),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          fillColor: Colors.white,
+          filled: true,
+        ),
+      ),
+    );
+  }
+}

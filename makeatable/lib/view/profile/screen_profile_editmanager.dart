@@ -1,249 +1,138 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:makeatable/util/constants/color_constants.dart';
+import 'package:get/get.dart';
+import 'package:makeatable/view/profile/screen_profile_manager.dart';
 
-class Editmanager extends StatefulWidget {
-  const Editmanager({super.key});
+import '../../util/constants/color_constants.dart';
+import '../auth_module/widgets/my_button.dart';
+import '../auth_module/widgets/my_textfield.dart';
 
-  @override
-  State<Editmanager> createState() => _EditmanagerState();
-}
-
-class _EditmanagerState extends State<Editmanager> {
-  bool isVeg = true;
-  TextEditingController _nameController =
-      TextEditingController(text: 'Malabar Cafe');
-  TextEditingController _phoneController =
-      TextEditingController(text: '9000008700');
-
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _phoneController.dispose();
-    super.dispose();
-  }
+class EditManagerProfile extends StatelessWidget {
+  const EditManagerProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
+    return Scaffold(
+      backgroundColor: Color(0xfff0f0f0),
+      body: SafeArea(
+          child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Get.off(Manager());
+                  },
+                  child: const Icon(
+                    Icons.arrow_back_ios_outlined,
+                    size: 30,
+                  ),
+                ),
+
+                //
+                const SizedBox(
+                  width: 150,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.off(Manager());
+                  },
+                  child: Icon(
+                    Icons.check,
+                    color: mRed,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
             child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
-                      Icons.arrow_back_ios_outlined,
-                      size: 30,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  const Text(
-                    'Edit Profile',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  const SizedBox(
-                    width: 150,
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
-                      Icons.arrow_back_ios_outlined,
-                      size: 30,
-                    ),
-                  ),
-                ],
-              ),
+              scrollDirection: Axis.vertical,
+              children: [
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 20,
+                ),
+                Imagepicker(),
+                SizedBox(
+                  height: 20,
+                ),
+                MyTextField(
+                    controller: new TextEditingController(),
+                    hintText: 'Restaurant name',
+                    obscureText: false),
+                SizedBox(
+                  height: 20,
+                ),
+                MyTextField(
+                    controller: new TextEditingController(),
+                    hintText: 'Email',
+                    obscureText: false),
+                SizedBox(
+                  height: 20,
+                ),
+                MyTextField(
+                    controller: new TextEditingController(),
+                    hintText: 'Phone',
+                    obscureText: false),
+                SizedBox(
+                  height: 20,
+                ),
+                MyTextField(
+                    controller: new TextEditingController(),
+                    hintText: 'Email',
+                    obscureText: false),
+                SizedBox(
+                  height: 20,
+                ),
+                LocationInputText(
+                    controller: new TextEditingController(),
+                    hintText: 'Location',
+                    obscureText: false),
+                SizedBox(
+                  height: 20,
+                ),
+                TimePickerText(
+                  hintText: 'Start Time',
+                  controller: TextEditingController(),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TimePickerText(
+                  hintText: 'End Time',
+                  controller: TextEditingController(),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                RoomTypeInput(
+                  controller: TextEditingController(),
+                  hintText: 'Room type',
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                SeatTextfield(
+                  controller: TextEditingController(),
+                  hintText: 'Seating Capacity',
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+              ],
             ),
-            Container(
-              height: 160,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                  Positioned(
-                    top: 20,
-                    child: Image.asset(
-                      'images/img_2.png',
-                      width: 117,
-                      height: 117,
-                    ),
-                  ),
-                  Positioned(
-                    top: 100,
-                    left: 210,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Image.asset(
-                        'images/Image40.png',
-                        width: 37,
-                        height: 37,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(27, 10, 10, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'NAME',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: mSubtitle,
-                    ),
-                  ),
-                  // Add spacing between the label and the TextField
-                  TextField(
-                    controller: _nameController, // Bind the controller
-                    decoration: InputDecoration(
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 292),
-                      ),
-                      hintText: 'Enter your name', // Placeholder text
-                    ),
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'PHONE NUMBER',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: mSubtitle,
-                    ),
-                  ),
-                  TextField(
-                    controller: _phoneController, // Bind the controller
-                    decoration: InputDecoration(
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 292),
-                      ),
-                      hintText: 'Enter your phone number', // Placeholder text
-                    ),
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30, 10, 130, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'EMAIL ADDRESS',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: mSubtitle,
-                    ),
-                  ),
-                  Text(
-                    'aswin@gmail.com',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: mSubtitle,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 80,
-            ),
-            Padding(
-                padding: const EdgeInsets.all(14.0),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Log Out',
-                    style: TextStyle(fontSize: 23, color: Color(0xFFFFEECC)),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      fixedSize: Size(351, 59),
-                      backgroundColor: Color(0xFFFA1111)),
-                )),
-          ],
-        )),
-        bottomNavigationBar: bottomBar(0),
-      ),
+          )
+        ],
+      )),
     );
   }
-}
-
-Widget bottomBar(index) {
-  return BottomNavigationBar(
-    showSelectedLabels: false,
-    showUnselectedLabels: false,
-    backgroundColor: Color(0xffFBEFE4),
-    selectedItemColor: Color(0xFFE81514),
-    unselectedItemColor: Color(0xFF667080),
-    items: <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: SvgPicture.asset('icons/home.svg'),
-        label: '',
-      ),
-      BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/search.svg'), label: ''),
-      BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/user.svg'), label: ''),
-    ],
-    currentIndex: index,
-  );
-}
-
-prefBlock(bool isSelected, String title) {
-  return Container(
-    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-    width: 307,
-    height: 56,
-    decoration: BoxDecoration(
-      color: Color(0xFFD9D9D9),
-      borderRadius: BorderRadius.circular(10),
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const SizedBox(
-          width: 20,
-        ),
-        Text(title),
-        const SizedBox(
-          width: 140,
-        ),
-        Container(
-          width: 30,
-          height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: isSelected ? mRedSahde : Color(0xFFA9A9A9),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: isSelected ? mRed : Color(0xFF6a6a6a),
-                  borderRadius: BorderRadius.circular(50)),
-            ),
-          ),
-        )
-      ],
-    ),
-  );
 }

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:makeatable/util/constants/color_constants.dart';
+import 'package:makeatable/view/SearchResult/Pages/screen_search_result_main.dart';
+import 'package:makeatable/view/profile/screen_profile_user.dart';
 
-class bottomBar extends StatelessWidget {
- final Function(int) onTap;
- final int index;
-      const bottomBar( {
-        super.key,
-        required this.index,
-        required this.onTap,
-});
+import '../../homepage_module/pages/screen_home.dart';
+
+class UserbottomBar extends StatelessWidget {
+  final int index;
+  const UserbottomBar({
+    super.key,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,42 +25,38 @@ class bottomBar extends StatelessWidget {
 
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/home.svg', color: Color(0xFF667080)),
+          icon: SvgPicture.asset(
+            'icons/home.svg',
+            color: (index == 0) ? mIconActive : mIconInactive,
+          ),
           label: '',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             'icons/search.svg',
-            color: Color(0xFFE81514), // Change the color here
+            color: (index == 1)
+                ? mIconActive
+                : mIconInactive, // Change the color here
           ),
           label: '',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             'icons/user.svg',
-            color: Color(0xFF667080),
+            color: (index == 2) ? mIconActive : mIconInactive,
           ),
           label: '',
         ),
       ],
       currentIndex: index,
-      onTap: onTap, // Call the provided onTap callback
+      onTap: (index) {
+        if (index == 0)
+          Get.off(HomeScreen(
+            isLogged: true,
+          ));
+        if (index == 1) Get.off(Homepage());
+        if (index == 2) Get.off(User());
+      }, // Call the provided onTap callback
     );
   }
-
 }
-
-
-// class BottomBar extends StatelessWidget {
-//
-//   final String val;
-//   final Function()?
-//    BottomBar({required String this.val,super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//
-//
-//     return const Placeholder();
-//   }
-// }

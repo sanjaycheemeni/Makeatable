@@ -16,16 +16,16 @@ enum ExerciseFilter { salty, sour, sweet, spicy }
 
 class TopMessage extends StatelessWidget {
   final String name;
-  const TopMessage({super.key, required this.name});
+  const TopMessage({super.key, required String this.name});
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            'Discover',
+            name,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 24,
@@ -164,7 +164,9 @@ class TopRatedCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             image: const DecorationImage(
-                image: AssetImage('images/chicken_biriyani.jpeg'),
+                opacity: .4,
+                image: NetworkImage(
+                    'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/8e8314571fba0e9266c1e03af418d023'),
                 fit: BoxFit.cover),
             color: Color(0xaa000000),
             borderRadius: BorderRadius.circular(10)),
@@ -215,7 +217,9 @@ class LongBar extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(imageLocation), fit: BoxFit.cover),
+                image: NetworkImage(
+                    'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/8e8314571fba0e9266c1e03af418d023'),
+                fit: BoxFit.cover),
             color: Color(0xaa000000),
             borderRadius: BorderRadius.circular(10)),
         // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),

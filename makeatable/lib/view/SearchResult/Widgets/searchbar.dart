@@ -15,7 +15,7 @@ class searchbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextField(
         // textAlign: TextAlign.center,
@@ -26,7 +26,6 @@ class searchbar extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade400),
               borderRadius: BorderRadius.circular(5.0),
-
             ),
             prefixIcon: Align(
               widthFactor: 1.0,
@@ -35,13 +34,13 @@ class searchbar extends StatelessWidget {
                 Icons.arrow_back_ios,
               ),
             ),
-            suffixIcon:Icon(
+            suffixIcon: Icon(
               Icons.search,
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade400),
             ),
-            fillColor: Color(0xFFFCDFDF),
+            fillColor: Color.fromARGB(255, 255, 255, 255),
             filled: true,
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey[500])),

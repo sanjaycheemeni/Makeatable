@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:makeatable/view/shared/Filter.dart';
+import 'package:makeatable/view/shared/Widget.dart';
+import 'package:makeatable/view/shared/managetOrderListTile.dart';
 
+import '../../shared/UserSearchFoodTile.dart';
 import '../../widgets/widget_custombottombar.dart';
 import '../shared/widgets.dart';
 
@@ -15,15 +18,18 @@ class _mainsearchpageState extends State<MainSearchpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfffff2f2),
+      backgroundColor: Color.fromARGB(255, 233, 233, 233),
       body: Column(
         children: [
+          SizedBox(
+            height: 50,
+          ),
           const Padding(
             padding: EdgeInsets.fromLTRB(30, 45, 20, 14),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TopMessage(name: " "),
+                TopMessage(name: "Discover"),
                 filterbutton(),
               ],
             ),
@@ -36,8 +42,9 @@ class _mainsearchpageState extends State<MainSearchpage> {
             padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
             height: 200,
             child: ListView(
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              children: const [
+              children: [
                 TopRatedCard(
                     foodName: 'foodName',
                     price: 'price',
@@ -54,56 +61,43 @@ class _mainsearchpageState extends State<MainSearchpage> {
             ),
           ),
           Container(
-            child: Container(
-              margin: const EdgeInsets.only(top: 10, bottom: 0),
-              padding: const EdgeInsets.only(right: 20, left: 20),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        "Recent",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 21,
-                        ),
+            margin: EdgeInsets.only(left: 20, top: 15),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "Recent",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 21,
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            height: 290,
-            child: ListView(
+          Expanded(
+            child: ListView.builder(
               scrollDirection: Axis.vertical,
-              children: const [
-                LongBar(
-                    foodName: 'Biriyani',
-                    price: '₹150',
-                    imageLocation: 'imageLocation'),
-                LongBar(
-                    foodName: 'meals',
-                    price: '₹50',
-                    imageLocation: 'imageLocation'),
-                LongBar(
-                    foodName: 'Dosa',
-                    price: '₹60',
-                    imageLocation: 'imageLocation'),
-                LongBar(
-                    foodName: 'Geerice',
-                    price: '₹70',
-                    imageLocation: 'imageLocation')
-              ],
+              physics: BouncingScrollPhysics(),
+              itemCount: 9,
+              itemBuilder: (b, i) {
+                return UserFoodCard(
+                    isActive: true,
+                    foodImage:
+                        'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/em9fdvyzojbku52rcu5q',
+                    foodName: 'foodName',
+                    foodPrice: 'foodPrice');
+              },
             ),
           )
         ],
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        selected: 0,
+        selected: 1,
         isLogged: true,
       ),
     );

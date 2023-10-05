@@ -27,7 +27,7 @@ class searchbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 50, 20, 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextField(
         controller: controller,
         obscureText: obscureText,
@@ -64,8 +64,10 @@ class FoodCard extends StatelessWidget {
   final isActive;
   final foodName;
   final foodPrice;
+  final foodImage;
   const FoodCard(
       {required bool this.isActive,
+      required String this.foodImage,
       required String this.foodName,
       required String this.foodPrice,
       super.key});
@@ -98,8 +100,8 @@ class FoodCard extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8),
                         bottomLeft: Radius.circular(8)),
-                    child: Image.asset(
-                      'images/chicken_biriyani.jpeg',
+                    child: Image.network(
+                      foodImage,
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
@@ -116,7 +118,7 @@ class FoodCard extends StatelessWidget {
                         style: TextStyle(color: Colors.black, fontSize: 20),
                       ),
                       Text(
-                        'Rs' + foodPrice,
+                        'Rs ' + foodPrice,
                         style: TextStyle(color: mIconInactive, fontSize: 15),
                       )
                     ],
@@ -219,7 +221,7 @@ class _AddfoodState extends State<Addfood> {
     var val = true;
 
     return Container(
-      height: 390 + MediaQuery.of(context).viewInsets.bottom + 10,
+      height: 500 + MediaQuery.of(context).viewInsets.bottom + 10,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Color.fromARGB(255, 233, 233, 233)),
@@ -234,7 +236,11 @@ class _AddfoodState extends State<Addfood> {
                 fontSize: 24, fontWeight: FontWeight.bold, color: mRed),
           ),
           SizedBox(
-            height: 35,
+            height: 5,
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 10),
+            child: AddFoodImagePicker(),
           ),
           MyTextField(
               controller: TextEditingController(),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
+import 'package:makeatable/view/profile/screen_profile_user.dart';
 
 class Editprofile extends StatefulWidget {
   const Editprofile({super.key});
@@ -33,27 +35,24 @@ class _EditprofileState extends State<Editprofile> {
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.off(User());
+                    },
                     child: const Icon(
                       Icons.arrow_back_ios_outlined,
                       size: 30,
                     ),
                   ),
-                  const SizedBox(width: 6),
-                  const Text(
-                    'Edit Profile',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  const SizedBox(
-                    width: 150,
-                  ),
                   GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
+                    onTap: () {
+                      Get.off(User());
+                    },
+                    child: Icon(
                       Icons.check,
+                      color: mRed,
                       size: 30,
                     ),
                   ),
@@ -61,13 +60,14 @@ class _EditprofileState extends State<Editprofile> {
               ),
             ),
             Container(
-              height: 160,
+              height: 120,
               width: MediaQuery.of(context).size.width,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
+                  // Image.asset('images/img.png'),
                   Positioned(
-                    top: 20,
+                    top: 10,
                     child: Image.asset(
                       'images/img_1.png',
                       width: 117,
@@ -75,8 +75,8 @@ class _EditprofileState extends State<Editprofile> {
                     ),
                   ),
                   Positioned(
-                    top: 90,
-                    left: 200,
+                    top: 80,
+                    left: 230,
                     child: GestureDetector(
                       onTap: () {},
                       child: Image.asset(
@@ -194,53 +194,41 @@ class _EditprofileState extends State<Editprofile> {
             ),
           ],
         )),
-        bottomNavigationBar: bottomBar(0),
       ),
     );
   }
 }
 
-Widget bottomBar(index) {
-  return BottomNavigationBar(
-    showSelectedLabels: false,
-    showUnselectedLabels: false,
-    backgroundColor: Color(0xffFBEFE4),
-    selectedItemColor: Color(0xFFE81514),
-    unselectedItemColor: Color(0xFF667080),
-    items: <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: SvgPicture.asset('icons/home.svg'),
-        label: '',
-      ),
-      BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/search.svg'), label: ''),
-      BottomNavigationBarItem(
-          icon: SvgPicture.asset('icons/user.svg'), label: ''),
-    ],
-    currentIndex: index,
-  );
-}
-
 prefBlock(bool isSelected, String title) {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: const EdgeInsets.all(0),
     child: Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
       width: 307,
       height: 56,
       decoration: BoxDecoration(
-        color: Color(0xFFD9D9D9),
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(255, 190, 190, 190),
+            blurRadius: 5.0,
+          ),
+        ],
+        color: Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(
+          SizedBox(
             width: 20,
           ),
-          Text(title),
+          Text(
+            title,
+            style: TextStyle(
+                color: mRed, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(
-            width: 140,
+            width: 170,
           ),
           Container(
             width: 30,
@@ -250,7 +238,7 @@ prefBlock(bool isSelected, String title) {
               color: isSelected ? mRedSahde : Color(0xFFA9A9A9),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(7),
               child: Container(
                 decoration: BoxDecoration(
                     color: isSelected ? mRed : Color(0xFF6a6a6a),

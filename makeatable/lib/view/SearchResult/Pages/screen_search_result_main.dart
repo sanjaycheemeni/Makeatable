@@ -33,7 +33,7 @@ class _HomepageState extends State<Homepage> {
               children: [
                 SizedBox(height: 20),
                 SizedBox(
-                  height: 40,
+                  height: 50,
                   child: searchbar(
                     hintText: 'Search',
                     controller: null,
@@ -47,6 +47,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 Expanded(
                   child: GridView.builder(
+                      physics: BouncingScrollPhysics(),
                       // crossAxisCount: 2,
                       primary: false,
                       padding: const EdgeInsets.all(20),
@@ -63,7 +64,9 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
         ),
-        bottomNavigationBar: bottomBar(index: 0, onTap: (n) {}),
+        bottomNavigationBar: UserbottomBar(
+          index: 1,
+        ),
       ),
     );
   }

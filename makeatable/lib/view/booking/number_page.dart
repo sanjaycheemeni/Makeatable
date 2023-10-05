@@ -19,14 +19,17 @@ class _Widget01State extends State<Widget01> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${selectedTime.hour}:${selectedTime.minute}',
-                style: TextStyle(color: Colors.black),
+                ' ${selectedTime.hour}:${selectedTime.minute} ${selectedTime.period.name}',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 255, 0, 0),
+                    fontSize: 20),
               ),
               ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Color(0xFFFEE4E4))),
-                  child: Icon(Icons.mode_edit_outlined, color: Colors.black),
+                      backgroundColor: MaterialStateProperty.all(
+                          Color.fromARGB(255, 255, 0, 0))),
+                  child: Text('Select Time'),
                   onPressed: () async {
                     final TimeOfDay? timeOfDay = await showTimePicker(
                         context: context,
@@ -40,6 +43,8 @@ class _Widget01State extends State<Widget01> {
                   }),
             ],
           ),
+
+          //choose types
         ],
       ),
     );

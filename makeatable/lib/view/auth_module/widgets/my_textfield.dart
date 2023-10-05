@@ -223,13 +223,32 @@ class _ImagepickerState extends State<Imagepicker> {
         _openImagePicker();
       },
       child: Container(
+        alignment: Alignment.center,
         child: _image != null
-            ? Image.file(_image!, fit: BoxFit.cover)
-            : Text('Choose Image'),
+            ? Image.file(_image!, fit: BoxFit.fill)
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.upload,
+                    size: 40,
+                    color: mIconInactive,
+                  ),
+                  Text(
+                    'Choose image',
+                    style: TextStyle(fontSize: 14, color: mIconInactive),
+                  )
+                ],
+              ),
         margin: EdgeInsets.symmetric(horizontal: 25),
         height: 190,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8), color: Colors.white),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            offset: Offset(2, 2),
+            blurRadius: 12,
+            color: Color.fromRGBO(0, 0, 0, 0.16),
+          )
+        ], borderRadius: BorderRadius.circular(8), color: Colors.white),
       ),
     );
   }
@@ -266,6 +285,56 @@ class NumberInputField extends StatelessWidget {
           fillColor: Colors.white,
           filled: true,
         ),
+      ),
+    );
+  }
+}
+
+class AddFoodImagePicker extends StatefulWidget {
+  const AddFoodImagePicker({super.key});
+
+  @override
+  State<AddFoodImagePicker> createState() => _AddFoodImagePickerState();
+}
+
+class _AddFoodImagePickerState extends State<AddFoodImagePicker> {
+  File? _image;
+
+  // This is the image picker
+  final _picker = ImagePicker();
+  // Implementing the image picker
+  Future<void> _openImagePicker() async {
+    final XFile? pickedImage =
+        await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      setState(() {
+        _image = File(pickedImage.path);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        _openImagePicker();
+      },
+      child: Container(
+        alignment: Alignment.center,
+        child: _image != null
+            ? Image.file(_image!, fit: BoxFit.contain)
+            : Text(
+                'Choose Image',
+                style: TextStyle(color: Colors.grey.shade500),
+              ),
+        height: 150,
+        width: 150,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              color: Color.fromARGB(255, 202, 202, 202),
+              spreadRadius: 1,
+              blurRadius: 4)
+        ], borderRadius: BorderRadius.circular(8), color: Colors.white),
       ),
     );
   }

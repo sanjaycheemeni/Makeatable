@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_forgot_password.dart';
 import 'package:makeatable/view/auth_module/pages/screen_register_now.dart';
@@ -9,6 +10,7 @@ import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/auth_module/widgets/my_textfield.dart';
 import 'package:makeatable/view/auth_module/widgets/snackbar.dart';
 import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
+import 'package:makeatable/view/screen_managerhome.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -119,7 +121,7 @@ class LoginPage extends StatelessWidget {
               //login button
               MyButton(
                 onTap: () {
-                  if (usernameController.text == "Rafi@mpro.com") {
+                  if (usernameController.text == "rafi@mpro.com") {
                     if (passwordController.text == "123") {
                       snack_success(context: context);
 
@@ -128,6 +130,17 @@ class LoginPage extends StatelessWidget {
                             builder: (BuildContext bc) => HomeScreen(
                                   isLogged: true,
                                 )));
+                      });
+                    } else {
+                      //  wrong passs
+                      snack_wrong_pass(context: context);
+                    }
+                  } else if (usernameController.text == "jithin@mpro.com") {
+                    if (passwordController.text == "123") {
+                      snack_success(context: context);
+
+                      Timer(Duration(seconds: 2), () {
+                        Get.to(ManagerHome());
                       });
                     } else {
                       //  wrong passs

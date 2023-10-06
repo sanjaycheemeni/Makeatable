@@ -14,22 +14,28 @@ import 'package:numberpicker/numberpicker.dart';
 import 'number_page.dart';
 
 class BookingPage extends StatefulWidget {
-  const BookingPage({super.key});
+  BookingPage({super.key});
 
   @override
   State<BookingPage> createState() => _BookingPageState();
 }
 
 class _BookingPageState extends State<BookingPage> {
+  late double _deviceHeight;
+  late double _deviceWidth;
+  var _deviceTextSize;
   var _currentValue = 1;
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    _deviceTextSize = MediaQuery.of(context).textScaleFactor;
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 238, 238, 238),
         body: SafeArea(
           child: ListView(children: [
             SizedBox(
-              height: 20,
+              height: _deviceHeight * 0.02,
             ),
 
             // cus appbar
@@ -38,7 +44,7 @@ class _BookingPageState extends State<BookingPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 30,
+                  width: _deviceWidth * 0.04,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -51,13 +57,13 @@ class _BookingPageState extends State<BookingPage> {
                 ),
 
                 //
-                const SizedBox(
-                  width: 150,
+                SizedBox(
+                  width: _deviceWidth * 0.08,
                 ),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: _deviceHeight * 0.03,
             ),
             Column(
               children: [
@@ -67,14 +73,14 @@ class _BookingPageState extends State<BookingPage> {
                     borderRadius: BorderRadius.circular(8),
                     child: Image.network(
                       'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/mz69ogfrejetsashmlrz',
-                      height: 200,
+                      height: _deviceHeight * 0.2,
                       width: MediaQuery.of(context).size.width,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: _deviceHeight * 0.03,
                 ),
                 Text(
                   'Malabar cafe',
@@ -83,7 +89,7 @@ class _BookingPageState extends State<BookingPage> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: _deviceHeight * 0.01,
             ),
             //
 
@@ -96,11 +102,12 @@ class _BookingPageState extends State<BookingPage> {
                   color: Color.fromARGB(255, 255, 255, 255)),
               child: DatePicker(
                 DateTime.now(),
-                height: 100,
-                width: 80,
+                height: _deviceHeight * 0.11,
+                width: _deviceWidth * 0.2,
                 initialSelectedDate: DateTime.now(),
                 selectionColor: Color.fromARGB(255, 255, 0, 0),
                 selectedTextColor: Colors.white,
+                daysCount: 7,
               ),
             ),
 
@@ -109,8 +116,8 @@ class _BookingPageState extends State<BookingPage> {
             Container(
               padding: EdgeInsets.only(left: 25, right: 25),
               margin: EdgeInsets.only(left: 25, right: 25),
-              width: 400,
-              height: 50,
+              width: _deviceWidth * 0.5,
+              height: _deviceHeight * 0.09,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(9)),
                 color: Color.fromARGB(255, 255, 255, 255),
@@ -129,8 +136,8 @@ class _BookingPageState extends State<BookingPage> {
             Container(
               margin: EdgeInsets.only(left: 25, right: 25),
               padding: EdgeInsets.symmetric(horizontal: 25),
-              height: 80,
-              width: 90,
+              height: _deviceHeight * 0.09,
+              width: _deviceWidth * 0.10,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10), color: Colors.white),
               child: Row(
@@ -143,25 +150,25 @@ class _BookingPageState extends State<BookingPage> {
             Container(
               margin: EdgeInsets.only(left: 25, right: 25),
               padding: EdgeInsets.symmetric(horizontal: 25),
-              height: 80,
-              width: 90,
+              height: _deviceHeight * 0.09,
+              width: _deviceWidth * 0.10,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10), color: Colors.white),
               child: Row(
-                //mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Number of seats'),
                   Tooltip(
                     message: 'Slide to select',
                     triggerMode: TooltipTriggerMode.tap,
                     child: NumberPicker(
-                      itemHeight: 50,
-                      itemWidth: 120,
+                      itemHeight: _deviceHeight * 0.07,
+                      itemWidth: _deviceWidth * 0.15,
                       axis: Axis.horizontal,
                       value: _currentValue,
                       minValue: 1,
                       maxValue: 12,
-                      itemCount: 4,
+                      itemCount: 3,
                       onChanged: (value) =>
                           setState(() => _currentValue = value),
                     ),
@@ -170,7 +177,7 @@ class _BookingPageState extends State<BookingPage> {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: _deviceHeight * 0.03,
             ),
             MyButton(
                 onTap: () {
@@ -179,7 +186,7 @@ class _BookingPageState extends State<BookingPage> {
                 clr: mRed,
                 text: 'Book Seat'),
             SizedBox(
-              height: 15,
+              height: _deviceHeight * 0.02,
             ),
           ]),
         ));

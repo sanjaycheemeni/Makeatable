@@ -72,7 +72,7 @@ class TestPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
                       itemBuilder: (c, i) {
-                        return const TopRestocard();
+                        return TopRestocard();
                       })),
 
               // Catagory section

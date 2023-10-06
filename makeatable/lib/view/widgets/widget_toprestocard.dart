@@ -17,7 +17,7 @@ class TopRestocard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Container(
-        width: 290,
+        width: _deviceWidth * 0.4,
         height: 80,
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(

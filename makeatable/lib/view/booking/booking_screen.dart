@@ -155,7 +155,7 @@ class _BookingPageState extends State<BookingPage> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10), color: Colors.white),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Number of seats'),
                   Tooltip(
@@ -168,7 +168,7 @@ class _BookingPageState extends State<BookingPage> {
                       value: _currentValue,
                       minValue: 1,
                       maxValue: 12,
-                      itemCount: 3,
+                      itemCount: 4,
                       onChanged: (value) =>
                           setState(() => _currentValue = value),
                     ),

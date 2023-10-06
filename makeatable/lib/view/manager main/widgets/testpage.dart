@@ -30,8 +30,8 @@ class TestPage extends StatelessWidget {
               const wBlock(10),
               // welcome msg
               isLogged
-                  ? const WelcomeMessage(name: 'Sanju')
-                  : const WelcomeMessage(name: 'get Your Food'),
+                  ? WelcomeMessage(name: 'Sanju')
+                  : WelcomeMessage(name: 'get Your Food'),
 
               // Reminder section
               isLogged

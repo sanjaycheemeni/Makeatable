@@ -6,19 +6,25 @@ import 'package:makeatable/util/constants/icon_constants.dart';
 // Reminder Card
 
 class ReminderCard extends StatelessWidget {
+  late double _deviceHeight;
+  late double _deviceWidth;
+  var _deviceTextSize;
   final String time;
   final String location;
-  const ReminderCard({super.key, required this.time, required this.location});
+  ReminderCard({super.key, required this.time, required this.location});
 
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    _deviceTextSize = MediaQuery.of(context).textScaleFactor;
     final iconColor = Color.fromARGB(255, 255, 220, 220);
     final labelColor = Color.fromARGB(255, 255, 250, 250);
 
     return Padding(
       padding: const EdgeInsets.only(left: 15, top: 5, right: 15),
       child: Container(
-        height: 150,
+        height: _deviceHeight * 0.15,
         decoration:
             BoxDecoration(borderRadius: BorderRadius.circular(8), color: mRed),
         child: Padding(
@@ -26,15 +32,15 @@ class ReminderCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Your food will be ready',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: _deviceTextSize * 20,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: _deviceHeight * 0.01,
               ),
               reminderItem(IconSet().clock, time),
               reminderItem(IconSet().location, location)
@@ -50,16 +56,16 @@ class ReminderCard extends StatelessWidget {
       children: [
         SvgPicture.asset(
           icon,
-          width: 18,
-          height: 18,
+          width: _deviceWidth * 0.02,
+          height: _deviceHeight * 0.02,
           color: mWhite,
         ),
-        const SizedBox(
-          width: 10,
+        SizedBox(
+          width: _deviceWidth * 0.02,
         ),
         Text(
           value,
-          style: TextStyle(fontSize: 18, color: mWhite),
+          style: TextStyle(fontSize: _deviceTextSize * 16, color: mWhite),
         )
       ],
     );

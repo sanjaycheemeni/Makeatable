@@ -11,11 +11,15 @@ import '../../widgets/widget_toprestocard.dart';
 import '../../widgets/widget_welcomemessage.dart';
 
 class HomeScreen extends StatelessWidget {
+  late double _deviceHeight;
+  late double _deviceWidth;
   final bool isLogged;
-  const HomeScreen({required this.isLogged, super.key});
+  HomeScreen({required this.isLogged, super.key});
 
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
     // Data from DB
 
     return Scaffold(
@@ -27,32 +31,32 @@ class HomeScreen extends StatelessWidget {
             const wBlock(10),
             // welcome msg
             isLogged
-                ? const WelcomeMessage(name: 'Rafi')
-                : const WelcomeMessage(name: 'get Your Food'),
+                ? WelcomeMessage(name: ' Rafi')
+                : WelcomeMessage(name: ' get Your Food'),
 
             // Reminder section
             isLogged
                 ? const TitleHeading(heading: 'Reminder')
                 : SizedBox(
-                    height: 0,
+                    height: _deviceHeight * 0.00,
                   ),
             isLogged
                 ? ReminderCard(time: 'time', location: 'location')
                 : SizedBox(
-                    height: 0,
+                    height: _deviceHeight * 0.00,
                   ),
 
             // top rated section [list of Top rated foods]
             const TitleHeading(heading: 'Top Rated'),
             const hBlock(10),
             SizedBox(
-                height: 240,
+                height: _deviceHeight * 0.27,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: (c, i) {
-                    return const TopRatedCard(
+                    return TopRatedCard(
                         foodName: 'foodName',
                         price: 'price',
                         imageLocation: 'imageLocation');
@@ -63,13 +67,13 @@ class HomeScreen extends StatelessWidget {
             const TitleHeading(heading: 'Top Restaurants'),
             const hBlock(10),
             SizedBox(
-                height: 80,
+                height: _deviceHeight * 0.10,
                 child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
                     itemBuilder: (c, i) {
-                      return const TopRestocard();
+                      return TopRestocard();
                     })),
 
             // Catagory section

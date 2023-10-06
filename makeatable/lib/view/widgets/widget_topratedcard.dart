@@ -5,8 +5,11 @@ import 'package:makeatable/util/constants/icon_constants.dart';
 // Top rated food card
 
 class TopRatedCard extends StatelessWidget {
+  late double _deviceHeight;
+  late double _deviceWidth;
+  var _deviceTextSize;
   final String foodName, price, imageLocation;
-  const TopRatedCard(
+  TopRatedCard(
       {required this.foodName,
       required this.price,
       required this.imageLocation,
@@ -14,11 +17,14 @@ class TopRatedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    _deviceTextSize = MediaQuery.of(context).textScaleFactor;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 280,
-        width: 290,
+        height: _deviceHeight * 0.27,
+        width: _deviceWidth * 0.7,
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -31,8 +37,8 @@ class TopRatedCard extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
             alignment: Alignment.topRight,
-            width: 290,
-            height: 150,
+            height: _deviceHeight * 0.17,
+            width: _deviceWidth * 0.7,
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8), topRight: Radius.circular(8)),
@@ -41,8 +47,8 @@ class TopRatedCard extends StatelessWidget {
                     image: AssetImage('images/chicken_biriyani.jpeg'))),
             child: Container(
               margin: const EdgeInsets.only(top: 10, right: 10),
-              width: 40,
-              height: 25,
+              width: _deviceWidth * 0.1,
+              height: _deviceHeight * 0.03,
               decoration: BoxDecoration(
                   color: Color.fromARGB(255, 53, 100, 255),
                   borderRadius: BorderRadius.circular(5)),
@@ -50,8 +56,8 @@ class TopRatedCard extends StatelessWidget {
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Image.asset(
                   'images/star.png',
-                  height: 12,
-                  width: 12,
+                  height: _deviceHeight * 0.03,
+                  width: _deviceWidth * 0.03,
                   color: Colors.white,
                 ),
                 const Text(
@@ -62,11 +68,12 @@ class TopRatedCard extends StatelessWidget {
               ]),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 8, top: 8),
             child: Text(
               'Chicken Biriyani',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: _deviceTextSize * 20, fontWeight: FontWeight.w600),
             ),
           ),
           Padding(
@@ -74,7 +81,8 @@ class TopRatedCard extends StatelessWidget {
             child: Text(
               'Paragon Hotel',
               style: TextStyle(
-                  fontSize: 15, color: Color.fromARGB(95, 43, 43, 43)),
+                  fontSize: _deviceTextSize * 15,
+                  color: Color.fromARGB(95, 43, 43, 43)),
             ),
           )
         ]),

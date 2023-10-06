@@ -4,14 +4,20 @@ import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/util/constants/icon_constants.dart';
 
 class TopRestocard extends StatelessWidget {
-  const TopRestocard({super.key});
+  late double _deviceHeight;
+  late double _deviceWidth;
+  var _deviceTextSize;
+  TopRestocard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    _deviceTextSize = MediaQuery.of(context).textScaleFactor;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Container(
-        width: 290,
+        width: _deviceWidth * 0.4,
         height: 80,
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(

@@ -13,7 +13,11 @@ import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
 import 'package:makeatable/view/screen_managerhome.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+  //new height width
+  late double _deviceHeight;
+  late double _deviceWidth;
+  var _deviceTextSize;
+  // LoginPage({super.key});
 
   //text editing controllers
   var usernameController = TextEditingController();
@@ -21,13 +25,17 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    _deviceTextSize = MediaQuery.of(context).textScaleFactor;
+
     return Scaffold(
       backgroundColor: Color(0xfff0f0f0),
       body: SafeArea(
         child: Center(
           child: ListView(
             children: [
-              const SizedBox(height: 20),
+              SizedBox(height: _deviceHeight * 0.03),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -48,31 +56,31 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: _deviceWidth * 0.05),
                 ],
               ),
 
-              const SizedBox(height: 40),
+              SizedBox(height: _deviceHeight * 0.16),
 
               //App Logo
-              const Image(
+              Image(
                 image: AssetImage("images/logo.png"),
-                height: 100,
+                height: _deviceHeight * 0.12,
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: _deviceHeight * 0.03),
 
               //welcome back
               Center(
-                child: const Text(
+                child: Text(
                   'Welcome Back',
                   style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25),
+                      fontSize: _deviceTextSize * 40),
                 ),
               ),
 
-              const SizedBox(height: 50),
+              SizedBox(height: _deviceHeight * 0.05),
 
               //username textfield
               MyTextField(
@@ -80,8 +88,8 @@ class LoginPage extends StatelessWidget {
                 hintText: 'Email',
                 obscureText: false,
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: _deviceHeight * 0.02,
               ),
 
               //password textfield
@@ -90,8 +98,8 @@ class LoginPage extends StatelessWidget {
                   hintText: 'Password',
                   obscureText: true),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: _deviceHeight * 0.02,
               ),
 
               //forgot password
@@ -114,8 +122,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(
-                height: 60,
+              SizedBox(
+                height: _deviceHeight * 0.03,
               ),
 
               //login button
@@ -155,25 +163,25 @@ class LoginPage extends StatelessWidget {
                 clr: mRed,
               ),
 
-              const SizedBox(
-                height: 20,
-              ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
 
-              Center(child: const Text('or continue with')),
+              // Center(child: const Text('or continue with')),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: _deviceHeight * 0.02,
               ),
 
               //google signin
-              GestureDetector(
-                  onTap: () {
-                    print("continue with google");
-                  },
-                  child: SvgPicture.asset('images/google.svg')),
-              const SizedBox(
-                height: 50,
-              ),
+              // GestureDetector(
+              //     onTap: () {
+              //       print("continue with google");
+              //     },
+              //     child: SvgPicture.asset('images/google.svg')),
+              // const SizedBox(
+              //   height: 50,
+              // ),
 
               Padding(
                 padding: EdgeInsets.all(8.0),
@@ -195,8 +203,8 @@ class LoginPage extends StatelessWidget {
                 ]),
               ),
 
-              const SizedBox(
-                height: 8,
+              SizedBox(
+                height: _deviceHeight * 0.01,
               ),
 
               Padding(

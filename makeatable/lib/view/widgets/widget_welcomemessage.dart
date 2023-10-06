@@ -6,24 +6,32 @@ import 'package:makeatable/util/constants/icon_constants.dart';
 // Welcome Message widget
 
 class WelcomeMessage extends StatelessWidget {
+  late double _deviceHeight;
+  late double _deviceWidth;
+  var _deviceTextSize;
+
   final String name;
-  const WelcomeMessage({super.key, required this.name});
+  WelcomeMessage({super.key, required this.name});
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    _deviceTextSize = MediaQuery.of(context).textScaleFactor;
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '👋 Hai,',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: _deviceTextSize * 24,
             ),
           ),
           Text(
             name + "!",
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: _deviceTextSize * 24, fontWeight: FontWeight.bold),
           ),
         ],
       ),

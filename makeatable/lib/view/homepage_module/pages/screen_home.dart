@@ -2,7 +2,6 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import '../../widgets/widget_catogerycard.dart';
-import '../../widgets/widget_custombottombar.dart';
 import '../../widgets/widget_remindercard.dart';
 import '../../widgets/widget_sizedblock.dart';
 import '../../widgets/widget_titleheading.dart';

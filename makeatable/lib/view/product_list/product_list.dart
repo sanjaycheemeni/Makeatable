@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:makeatable/model/manager.dart';
 import 'package:makeatable/view/booking/booking_screen.dart';
 import 'package:makeatable/view/shared/UserSearchFoodTile.dart';
 
-import '../menu/page/menu.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({Key? key})

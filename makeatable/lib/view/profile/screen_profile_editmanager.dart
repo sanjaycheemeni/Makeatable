@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:makeatable/view/profile/screen_profile_manager.dart';
 
 import '../../util/constants/color_constants.dart';
-import '../auth_module/widgets/my_button.dart';
 import '../auth_module/widgets/my_textfield.dart';
 
 class EditManagerProfile extends StatelessWidget {

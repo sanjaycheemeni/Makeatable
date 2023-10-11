@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:makeatable/view/shared/Filter.dart';
-import 'package:makeatable/view/shared/Widget.dart';
-import 'package:makeatable/view/shared/managetOrderListTile.dart';
 
 import '../../shared/UserSearchFoodTile.dart';
 import '../../widgets/widget_custombottombar.dart';

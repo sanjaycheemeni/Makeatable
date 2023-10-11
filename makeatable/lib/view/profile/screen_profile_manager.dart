@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
-import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/profile/screen_profile_editmanager.dart';
 import 'package:makeatable/view/shared/managerBottomBar.dart';
 

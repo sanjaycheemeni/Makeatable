@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/route_manager.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
 import 'package:makeatable/view/profile/screen_profile_editprofile.dart';
 
-import '../SearchResult/Widgets/productlist.dart';
 
 class User extends StatefulWidget {
   User({super.key});

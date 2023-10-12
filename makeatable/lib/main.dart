@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:makeatable/services/user_service.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/Search%20module/pages/Search_discover.dart';
 import 'package:makeatable/view/SearchResult/Pages/screen_search_result_main.dart';
@@ -17,6 +18,9 @@ import 'package:makeatable/view/profile/screen_profile_user.dart';
 import 'view/profile/screen_profile_manager.dart';
 
 void main() {
+  // print(UserService().write(
+  //     "sanjay", "sanjay@test.com", "12345789", "9495273251", "CUSTOMER"));
+
   // runApp(const Splash());
   runApp(GetMaterialApp(
     theme: ThemeData(

@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:get_storage/get_storage.dart';
 import 'package:makeatable/services/constants.dart';
-
 import '../model/api_response.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,27 +10,17 @@ class UserService {
   UserService.internal();
   factory UserService() => instance;
 
-  Future<ApiResponse> write(
-    int id,
-    String firstName,
-    String lastName,
-    String title,
-    String description,
-    int sortOrder,
-    bool enabled,
-    bool visible,
-    String status,
-  ) async {
+  // add user
+  Future<ApiResponse> write(String fullName, String email, String password,
+      String mobileNum, String userType) async {
+    //
+
     Map<String, dynamic> body = {
-      'id': id,
-      'firstName': firstName,
-      'lastName': lastName,
-      'title': title,
-      'description': description,
-      'sortOrder': sortOrder,
-      'enabled': enabled,
-      'visible': visible,
-      'status': status,
+      "fullName": fullName,
+      "email": email,
+      "password": password,
+      "mobileNum": mobileNum,
+      "userType": userType
     };
 
     final response = await http.post(

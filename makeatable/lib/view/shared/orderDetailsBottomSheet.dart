@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 import '../../util/constants/color_constants.dart';
 import '../auth_module/widgets/my_button.dart';

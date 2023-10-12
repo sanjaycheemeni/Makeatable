@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/SearchResult/Widgets/sort_modal_content.dart';
 

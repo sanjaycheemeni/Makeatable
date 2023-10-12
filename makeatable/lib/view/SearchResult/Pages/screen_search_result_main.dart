@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/view/SearchResult/Widgets/productlist.dart';
 import 'package:makeatable/view/SearchResult/Widgets/searchbar.dart';
 import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import 'package:makeatable/view/SearchResult/Widgets/FilterndSort.dart';
-import 'package:makeatable/view/SearchResult/Widgets/filterbutten.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

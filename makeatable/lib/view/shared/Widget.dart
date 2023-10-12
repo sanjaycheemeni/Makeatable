@@ -1,12 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/auth_module/widgets/my_textfield.dart';
-import 'package:makeatable/view/auth_module/widgets/snackbar.dart';
 
 import '../../util/constants/color_constants.dart';
 

@@ -1,8 +1,5 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:makeatable/util/constants/color_constants.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton(

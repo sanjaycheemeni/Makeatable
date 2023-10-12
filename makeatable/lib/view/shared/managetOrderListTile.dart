@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:makeatable/view/Search%20module/pages/Search_discover.dart';
-import 'package:makeatable/view/booking/booking_page.dart';
-import 'package:makeatable/view/shared/Widget.dart';
 import 'package:makeatable/view/shared/orderDetailsBottomSheet.dart';
 
 import '../../util/constants/color_constants.dart';

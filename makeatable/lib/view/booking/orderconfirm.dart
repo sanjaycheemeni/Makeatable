@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/SearchResult/Pages/screen_search_result_main.dart';
 
 class OrderConfirm extends StatefulWidget {

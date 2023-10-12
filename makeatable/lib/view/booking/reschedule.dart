@@ -175,7 +175,7 @@ class Reschedule extends StatelessWidget {
                         color: Color(0xFFF54748),
                       ),
                       child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(primary: Colors.red),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                           onPressed: () {},
                           child: Text('Reschedule')),
                     ),
@@ -187,7 +187,7 @@ class Reschedule extends StatelessWidget {
                         color: Color(0xFFF54748),
                       ),
                       child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(primary: Colors.red),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                           onPressed: () {},
                           child: Text('Cancel')),
                     )

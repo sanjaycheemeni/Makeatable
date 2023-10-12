@@ -6,9 +6,7 @@ import 'package:makeatable/view/SearchResult/Pages/screen_search_result_main.dar
 import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/booking/orderconfirm.dart';
 import 'package:makeatable/view/booking/room.dart';
-import 'package:makeatable/view/booking/widget.dart';
 import 'package:makeatable/view/widgets/widget_titleheading.dart';
-import 'package:makeatable/view/widgets/widget_welcomemessage.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 import 'number_page.dart';

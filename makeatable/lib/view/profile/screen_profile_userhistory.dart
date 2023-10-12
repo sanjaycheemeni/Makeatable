@@ -100,7 +100,7 @@ class Userhistory extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Color(
+                    backgroundColor: Color(
                         0xFFD9D9D9), // Adjust the color of the left button
                     shape: RoundedRectangleBorder(
                       borderRadius:
@@ -120,7 +120,7 @@ class Userhistory extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Color(
+                    backgroundColor: Color(
                         0xFFFFEECC), // Adjust the color of the right button
                     shape: RoundedRectangleBorder(
                       borderRadius:
@@ -145,7 +145,7 @@ class Userhistory extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Color(
+                    backgroundColor: Color(
                         0xFFFFEECC), // Adjust the color of the left button
                     shape: RoundedRectangleBorder(
                       borderRadius:
@@ -293,7 +293,7 @@ class Userhistory extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Color(
+                    backgroundColor: Color(
                         0xFFFFEECC), // Adjust the color of the left button
                     shape: RoundedRectangleBorder(
                       borderRadius:

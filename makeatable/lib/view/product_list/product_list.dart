@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:makeatable/model/manager.dart';
 import 'package:makeatable/view/booking/booking_screen.dart';
 import 'package:makeatable/view/shared/UserSearchFoodTile.dart';
 

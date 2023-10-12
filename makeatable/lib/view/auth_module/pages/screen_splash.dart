@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
-import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});

@@ -3,8 +3,6 @@
 //import 'package:http/http.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:makeatable/view/shared/Widget.dart';
-import 'package:makeatable/view/shared/Widget.dart';
 
 import '../../../util/constants/color_constants.dart';
 

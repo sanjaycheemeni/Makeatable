@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
-import 'package:makeatable/util/constants/icon_constants.dart';
 
 class TopRestocard extends StatelessWidget {
   late double _deviceHeight;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:makeatable/services/constants.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_reset_password.dart';
 import 'package:makeatable/view/auth_module/widgets/my_button.dart';

@@ -14,7 +14,6 @@ import 'package:makeatable/view/product_list/product_list.dart';
 import 'package:makeatable/view/profile/screen_profile_editmanager.dart';
 import 'package:makeatable/view/profile/screen_profile_user.dart';
 
-import 'view/profile/screen_profile_manager.dart';
 
 void main() {
   // runApp(const Splash());

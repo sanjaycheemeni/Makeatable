@@ -7,7 +7,6 @@ import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
 import 'package:makeatable/view/profile/screen_profile_editprofile.dart';
 
-import '../SearchResult/Widgets/productlist.dart';
 
 class User extends StatefulWidget {
   User({super.key});

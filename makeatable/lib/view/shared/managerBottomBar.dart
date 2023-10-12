@@ -5,7 +5,6 @@ import 'package:makeatable/view/manger_history/screeen_mangaerhistory.dart';
 import 'package:makeatable/view/profile/screen_profile_manager.dart';
 
 import '../../util/constants/color_constants.dart';
-import '../auth_module/pages/screen_login.dart';
 import '../screen_managerhome.dart';
 
 Widget bottomBar(index) {

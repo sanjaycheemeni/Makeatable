@@ -11,11 +11,8 @@ import 'package:makeatable/view/auth_module/widgets/snackbar.dart';
 
 class RegisterNow extends StatelessWidget {
   RegisterNow({super.key});
-  TextEditingController fullname = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController mobilenumber = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController confirmnewpassword = TextEditingController();
+
+  UserController userController = new UserController();
 
   @override
   Widget build(BuildContext) {
@@ -37,20 +34,27 @@ class RegisterNow extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           MyTextField(
-              controller: fullname, hintText: 'Full Name', obscureText: false),
-          const SizedBox(height: 15),
-          MyTextField(controller: email, hintText: 'Email', obscureText: false),
+              controller: userController.fullname,
+              hintText: 'Full Name',
+              obscureText: false),
           const SizedBox(height: 15),
           MyTextField(
-              controller: mobilenumber,
+              controller: userController.email,
+              hintText: 'Email',
+              obscureText: false),
+          const SizedBox(height: 15),
+          MyTextField(
+              controller: userController.mobilenumber,
               hintText: 'Mobile Number',
               obscureText: false),
           const SizedBox(height: 15),
           MyTextField(
-              controller: password, hintText: 'Password', obscureText: true),
+              controller: userController.password,
+              hintText: 'Password',
+              obscureText: true),
           const SizedBox(height: 15),
           MyTextField(
-              controller: confirmnewpassword,
+              controller: userController.confirmnewpassword,
               hintText: 'Confirm Password',
               obscureText: true),
           const SizedBox(

@@ -1,14 +1,21 @@
 import 'dart:convert';
-import 'dart:html';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:makeatable/model/api_response.dart';
 
 import 'package:makeatable/services/constants.dart';
+import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 
 import '../model/customer.dart';
 
 class UserController {
+  TextEditingController fullname = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController mobilenumber = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmnewpassword = TextEditingController();
 // register new user
 
   Future registreUser(User user) async {
@@ -17,8 +24,15 @@ class UserController {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: user.toJson());
-
+          body: jsonEncode({
+            "fullName": user.fullName,
+            "email": user.email,
+            "password": user.password,
+            "mobileNumber": user.mobileNumber,
+            // "preference": "VEG",
+            "userType": "CUSTOMER",
+            "status": "PENDING"
+          }));
       // log to console
       print(response.body);
 

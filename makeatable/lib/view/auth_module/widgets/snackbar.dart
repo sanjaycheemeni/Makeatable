@@ -293,3 +293,79 @@ void snack_wrong_pass({
         ],
       )));
 }
+
+void snackEmptyFields({
+  required BuildContext context,
+}) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.transparent,
+      elevation: 150,
+      content: Stack(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+            height: 60,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 252, 0, 34),
+                borderRadius: BorderRadius.circular(12)),
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 44,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Oh Snap!",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                      Text(
+                        "Empty Field!",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'Poppins',
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 15,
+            left: 8,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SvgPicture.asset(
+                  "images/inputText.svg",
+                  height: 30,
+                  width: 30,
+                  color: Color(0xFF801336),
+                ),
+                Positioned(
+                  bottom: 1,
+                  right: 2,
+                  child: SvgPicture.asset(
+                    "images/alert.svg",
+                    color: Colors.white,
+                    height: 12,
+                    width: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      )));
+}

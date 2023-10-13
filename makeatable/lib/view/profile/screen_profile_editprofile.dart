@@ -38,7 +38,7 @@ class _EditprofileState extends State<Editprofile> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.off(User());
+                      Get.off(UserPage());
                     },
                     child: const Icon(
                       Icons.arrow_back_ios_outlined,
@@ -47,7 +47,7 @@ class _EditprofileState extends State<Editprofile> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.off(User());
+                      Get.off(UserPage());
                     },
                     child: Icon(
                       Icons.check,

@@ -25,6 +25,9 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
+        keyboardType: hintText == "Mobile Number"
+            ? TextInputType.phone
+            : TextInputType.name,
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -70,9 +73,12 @@ class LocationInputText extends StatelessWidget {
         padding: EdgeInsets.only(left: 15, top: 5),
         child: DropdownSearch<String>(
           dropdownDecoratorProps: DropDownDecoratorProps(
-            dropdownSearchDecoration:
-                InputDecoration(border: InputBorder.none, hintText: 'Location'),
+            dropdownSearchDecoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Location',
+            ),
           ),
+
           items: location_list,
 
           // selectedItem: 'Choose Location',

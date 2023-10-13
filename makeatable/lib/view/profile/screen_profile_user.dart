@@ -5,15 +5,16 @@ import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
 import 'package:makeatable/view/profile/screen_profile_editprofile.dart';
 
-
-class User extends StatefulWidget {
-  User({super.key});
+class UserPage extends StatefulWidget {
+  UserPage({super.key});
 
   @override
-  State<User> createState() => _UserState();
+  State<UserPage> createState() => _UserPageState();
+
+  Object? toJson() {}
 }
 
-class _UserState extends State<User> {
+class _UserPageState extends State<UserPage> {
   bool isCurrentBooking = true;
 
   @override

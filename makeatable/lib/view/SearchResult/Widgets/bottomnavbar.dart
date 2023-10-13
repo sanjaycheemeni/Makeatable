@@ -55,7 +55,7 @@ class UserbottomBar extends StatelessWidget {
             isLogged: true,
           ));
         if (index == 1) Get.off(Homepage());
-        if (index == 2) Get.off(User());
+        if (index == 2) Get.off(UserPage());
       }, // Call the provided onTap callback
     );
   }

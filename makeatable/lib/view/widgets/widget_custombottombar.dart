@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
@@ -33,7 +32,7 @@ class CustomBottomNavBar extends StatelessWidget {
         }
         if (index == 2) {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => User()));
+              context, MaterialPageRoute(builder: (context) => UserPage()));
         }
       },
       showSelectedLabels: false,

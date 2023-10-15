@@ -1,22 +1,18 @@
+import 'dart:io';
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:makeatable/model/api_response.dart';
-
+import 'package:get_storage/get_storage.dart';
+import 'package:http/http.dart';
 import 'package:makeatable/services/constants.dart';
-import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
+import '../model/api_response.dart';
+import 'package:http/http.dart' as http;
 
 import '../model/customer.dart';
 
-class UserController {
-  TextEditingController fullname = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController mobilenumber = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController confirmnewpassword = TextEditingController();
-// register new user
+class UserService {
+  static UserService instance = UserService.internal();
+  UserService.internal();
+  factory UserService() => instance;
 
   Future registreUser(User user) async {
     try {
@@ -29,19 +25,19 @@ class UserController {
             "email": user.email,
             "password": user.password,
             "mobileNumber": user.mobileNumber,
-            // "preference": "VEG",
+            "preference": "VEG",
             "userType": "CUSTOMER",
             "status": "PENDING"
           }));
-      // log to console
-      print(response.body);
-
+      print(response.statusCode.toString() + response.body);
       if (response.statusCode == 200) {
         return true;
         //  return ApiResponse.fromJson(utf8.decoder(response.bodyBytes));
       }
+    } on ClientException catch (e) {
+      print("no connectivity");
     } catch (e) {
-      print(e.toString());
+      print("already regrd.");
     }
     return false;
   }

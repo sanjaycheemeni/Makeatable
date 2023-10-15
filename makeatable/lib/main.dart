@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:makeatable/controller/customer.dart';
-import 'package:makeatable/model/customer.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_register_now.dart';
-import 'package:makeatable/view/auth_module/pages/screen_splash.dart';
 
 void main() {
   // print(UserService().write(

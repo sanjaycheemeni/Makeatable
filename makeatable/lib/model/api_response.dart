@@ -1,5 +1,5 @@
 class ApiResponse {
-  DateTime? timeStamp;
+  String? timeStamp;
   int? statusCode;
   String? status;
   String? reason;
@@ -16,6 +16,7 @@ class ApiResponse {
     this.developerMessage,
     this.data,
   });
+
   String getStatusCode() {
     return this.statusCode.toString();
   }

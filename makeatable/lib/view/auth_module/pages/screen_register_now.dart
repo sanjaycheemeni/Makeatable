@@ -62,7 +62,8 @@ class RegisterNow extends StatelessWidget {
           ),
           MyButton(
               onTap: () {
-                userController.registerUser(BuildContext);
+                snackInvalidMobileNumber(context: BuildContext);
+                // userController.registerUser(BuildContext);
               },
               clr: mRed,
               text: 'Register'),

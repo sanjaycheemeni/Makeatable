@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:makeatable/controller/AuthController.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_forgot_password.dart';
+import 'package:makeatable/view/auth_module/pages/screen_manager_register.dart';
 import 'package:makeatable/view/auth_module/pages/screen_register_now.dart';
 import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/auth_module/widgets/my_textfield.dart';
@@ -16,11 +18,11 @@ class LoginPage extends StatelessWidget {
   late double _deviceHeight;
   late double _deviceWidth;
   var _deviceTextSize;
-  // LoginPage({super.key});
+
+  AuthController authController = new AuthController();
+  LoginPage({super.key});
 
   //text editing controllers
-  var usernameController = TextEditingController();
-  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +85,7 @@ class LoginPage extends StatelessWidget {
 
               //username textfield
               MyTextField(
-                controller: usernameController,
+                controller: authController.usernameController,
                 hintText: 'Email',
                 obscureText: false,
               ),
@@ -93,7 +95,7 @@ class LoginPage extends StatelessWidget {
 
               //password textfield
               MyTextField(
-                  controller: passwordController,
+                  controller: authController.passwordController,
                   hintText: 'Password',
                   obscureText: true),
 
@@ -126,31 +128,21 @@ class LoginPage extends StatelessWidget {
               ),
 
               //login button
-              MyButton(
-                onTap: () {},
-                text: 'Login',
-                clr: mRed,
-              ),
-
-              // const SizedBox(
-              //   height: 20,
-              // ),
-
-              // Center(child: const Text('or continue with')),
+              Obx(() => Opacity(
+                  opacity: (authController.isLoading == true) ? 0.5 : 1,
+                  child: MyButton(
+                    onTap: () {
+                      authController.logIn(context);
+                    },
+                    text: (authController.isLoading == true)
+                        ? 'Loading...'
+                        : 'Login',
+                    clr: mRed,
+                  ))),
 
               SizedBox(
                 height: _deviceHeight * 0.02,
               ),
-
-              //google signin
-              // GestureDetector(
-              //     onTap: () {
-              //       print("continue with google");
-              //     },
-              //     child: SvgPicture.asset('images/google.svg')),
-              // const SizedBox(
-              //   height: 50,
-              // ),
 
               Padding(
                 padding: EdgeInsets.all(8.0),
@@ -184,7 +176,7 @@ class LoginPage extends StatelessWidget {
                     const Text('are you a manager     '),
                     GestureDetector(
                       onTap: () {
-                        print("are you a manager");
+                        Get.to(ManagerRegister());
                       },
                       child: const Text(
                         'Register Now',

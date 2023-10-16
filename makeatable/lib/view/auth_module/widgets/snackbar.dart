@@ -11,7 +11,7 @@ void snackSuccess({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 22, 133, 32),
                 borderRadius: BorderRadius.circular(12)),
@@ -77,7 +77,7 @@ void snackInvalidMobileNumber({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -155,7 +155,7 @@ void snackInvalidEmail({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -233,7 +233,7 @@ void snackAlreadyRegEmail({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -309,7 +309,7 @@ void snackWrongUser({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -384,7 +384,7 @@ void snackWrongPass({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 252, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -407,7 +407,7 @@ void snackWrongPass({
                         ),
                       ),
                       Text(
-                        "Wrong password!",
+                        "Wrong Credwentials!",
                         style: TextStyle(
                           fontSize: 12,
                           fontFamily: 'Poppins',
@@ -461,7 +461,7 @@ void snackNotStrongPass({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 252, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -538,7 +538,7 @@ void snackMissmatchPass({
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 252, 0, 34),
                 borderRadius: BorderRadius.circular(12)),
@@ -614,7 +614,7 @@ void snackEmptyFields({
         children: [
           Container(
             padding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
-            height: 60,
+            height: 65,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 252, 0, 34),
                 borderRadius: BorderRadius.circular(12)),

@@ -8,6 +8,8 @@ import '../services/userService.dart';
 class UserController extends GetxController {
   UserService userService = new UserService();
 
+  RxBool isLoading = false.obs;
+
   TextEditingController fullname = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController mobilenumber = TextEditingController();
@@ -25,9 +27,13 @@ class UserController extends GetxController {
         userType: "CUSTOMER"));
 
     if (status == true) {
-      snack_success(context: context);
+      snackSuccess(context: context);
     }
     return;
+  }
+
+  void change() {
+    isLoading.value = !isLoading.value;
   }
 }
 

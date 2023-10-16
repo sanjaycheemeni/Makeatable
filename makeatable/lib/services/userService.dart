@@ -30,14 +30,11 @@ class UserService {
             "status": "PENDING"
           }));
       print(response.statusCode.toString() + response.body);
-      if (response.statusCode == 200) {
-        return true;
-        //  return ApiResponse.fromJson(utf8.decoder(response.bodyBytes));
-      }
+
+      return response;
     } on ClientException catch (e) {
+      // NO Internet Connection
       print("no connectivity");
-    } catch (e) {
-      print("already regrd.");
     }
     return false;
   }

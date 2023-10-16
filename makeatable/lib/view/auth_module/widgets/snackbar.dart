@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-void snacksuccess({
+void snackSuccess({
   required BuildContext context,
 }) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -67,7 +67,7 @@ class _ManagerQRScanState extends State<ManagerQRScan> {
       if (this.mounted) {
         setState(() {
           this.barcode = barcode;
-          snack_success(context: context);
+          snackSuccess(context: context);
         });
       }
     });

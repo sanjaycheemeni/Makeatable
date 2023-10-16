@@ -127,37 +127,7 @@ class LoginPage extends StatelessWidget {
 
               //login button
               MyButton(
-                onTap: () {
-                  if (usernameController.text == "rafi@mpro.com") {
-                    if (passwordController.text == "123") {
-                      snack_success(context: context);
-
-                      Timer(Duration(seconds: 2), () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext bc) => HomeScreen(
-                                  isLogged: true,
-                                )));
-                      });
-                    } else {
-                      //  wrong passs
-                      snack_wrong_pass(context: context);
-                    }
-                  } else if (usernameController.text == "jithin@mpro.com") {
-                    if (passwordController.text == "123") {
-                      snack_success(context: context);
-
-                      Timer(Duration(seconds: 2), () {
-                        Get.to(ManagerHome());
-                      });
-                    } else {
-                      //  wrong passs
-                      snack_wrong_pass(context: context);
-                    }
-                  } else {
-                    //  user failed
-                    snack_wrong_user(context: context);
-                  }
-                },
+                onTap: () {},
                 text: 'Login',
                 clr: mRed,
               ),

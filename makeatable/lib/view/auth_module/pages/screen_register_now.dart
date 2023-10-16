@@ -12,7 +12,7 @@ import 'package:makeatable/view/auth_module/widgets/snackbar.dart';
 class RegisterNow extends StatelessWidget {
   RegisterNow({super.key});
 
-  UserController userController = new UserController();
+  UserController userController = Get.put(UserController());
 
   @override
   Widget build(BuildContext) {
@@ -60,13 +60,20 @@ class RegisterNow extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          MyButton(
-              onTap: () {
-                snackInvalidMobileNumber(context: BuildContext);
-                // userController.registerUser(BuildContext);
-              },
-              clr: mRed,
-              text: 'Register'),
+          Obx(
+            () => Opacity(
+              opacity: (userController.isLoading == true) ? 0.5 : 1,
+              child: MyButton(
+                  onTap: () {
+                    userController.change();
+                    userController.registerUser(BuildContext);
+                  },
+                  clr: mRed,
+                  text: (userController.isLoading == true)
+                      ? 'Loading...'
+                      : 'Register'),
+            ),
+          ),
         ]),
       ),
     );

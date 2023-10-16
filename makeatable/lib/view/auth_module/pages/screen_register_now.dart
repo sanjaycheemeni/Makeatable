@@ -3,6 +3,7 @@ import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:makeatable/controller/userController.dart';
 import 'package:makeatable/model/customer.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
+import 'package:makeatable/view/auth_module/pages/screen_login.dart';
 import 'package:makeatable/view/auth_module/pages/screen_reset_password.dart';
 import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/auth_module/widgets/my_textfield.dart';
@@ -64,9 +65,14 @@ class RegisterNow extends StatelessWidget {
             () => Opacity(
               opacity: (userController.isLoading == true) ? 0.5 : 1,
               child: MyButton(
-                  onTap: () {
-                    userController.change();
-                    userController.registerUser(BuildContext);
+                  onTap: () async {
+                    if (!userController.isLoading.value) {
+                      userController.change();
+                      if (await userController.registerUser(BuildContext)) {
+                        Get.to(LoginPage());
+                      }
+                      userController.change();
+                    }
                   },
                   clr: mRed,
                   text: (userController.isLoading == true)

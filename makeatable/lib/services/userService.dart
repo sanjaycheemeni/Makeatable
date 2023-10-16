@@ -1,9 +1,12 @@
 import 'dart:io';
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
+import 'package:makeatable/controller/userController.dart';
 import 'package:makeatable/services/constants.dart';
+import 'package:makeatable/view/auth_module/widgets/snackbar.dart';
 import '../model/api_response.dart';
 import 'package:http/http.dart' as http;
 
@@ -29,13 +32,17 @@ class UserService {
             "userType": "CUSTOMER",
             "status": "PENDING"
           }));
-      print(response.statusCode.toString() + response.body);
 
-      return response;
+      // log to console
+      print(response.statusCode.toString() + ":" + response.body);
+
+      // return status code, if there is no exceptipon
+      return response.statusCode;
     } on ClientException catch (e) {
-      // NO Internet Connection
-      print("no connectivity");
+      // no network connection error
+      // snackNoInternetError(BuildContext);
     }
-    return false;
+
+    return;
   }
 }

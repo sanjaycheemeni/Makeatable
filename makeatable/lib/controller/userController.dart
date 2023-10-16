@@ -17,19 +17,54 @@ class UserController extends GetxController {
   TextEditingController confirmnewpassword = TextEditingController();
 
   Future registerUser(BuildContext context) async {
-    var status = await userService.registreUser(new User(
-        fullName: fullname.text,
-        email: email.text,
-        mobileNumber: mobilenumber.text,
-        password: password.text,
-        preference: "VEG",
-        status: "PENDING",
-        userType: "CUSTOMER"));
-
-    if (status == true) {
-      snackSuccess(context: context);
+    // empty fileds check
+    if (!(fullname.text == '' ||
+        email.text == '' ||
+        mobilenumber.text == '' ||
+        password.text == '' ||
+        confirmnewpassword.text == '')) {
+      // email validation
+      if (isEmailValid(email.text)) {
+        // mobile number validation
+        if (isValidMobileNumber(mobilenumber.text)) {
+          // password missmatch
+          if (password.text == confirmnewpassword.text) {
+            // password strength validation
+            if (isStrongPassword(password.text)) {
+              final status = await userService.registreUser(new User(
+                  fullName: fullname.text,
+                  email: email.text,
+                  mobileNumber: mobilenumber.text,
+                  password: password.text,
+                  preference: "VEG",
+                  status: "PENDING",
+                  userType: "CUSTOMER"));
+              // database confilict, Email already registered
+              if (status == 409) {
+                snackAlreadyRegEmail(context: context);
+                return false;
+              }
+              // 202, Regsitered Successfully..!!
+              else {
+                snackSuccess(context: context);
+                return true;
+              }
+            } else {
+              snackNotStrongPass(context: context);
+            }
+          } else {
+            snackMissmatchPass(context: context);
+          }
+        } else {
+          snackInvalidMobileNumber(context: context);
+        }
+      } else {
+        snackInvalidEmail(context: context);
+      }
+    } else {
+      snackEmptyFields(context: context);
     }
-    return;
+    return false;
   }
 
   void change() {

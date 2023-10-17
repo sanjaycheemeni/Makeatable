@@ -5,12 +5,13 @@ import 'package:makeatable/util/constants/icon_constants.dart';
 // Top rated food card
 
 class TopRatedCard extends StatelessWidget {
-  final String foodName, price, imageLocation;
+  final String foodName, price, imageLocation, rating;
   const TopRatedCard(
       {required this.foodName,
       required this.price,
       required this.imageLocation,
-      super.key});
+      super.key,
+      required String this.rating});
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +55,8 @@ class TopRatedCard extends StatelessWidget {
                   width: 12,
                   color: Colors.white,
                 ),
-                const Text(
-                  '4.3',
+                Text(
+                  rating,
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),

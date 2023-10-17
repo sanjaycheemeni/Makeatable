@@ -4,7 +4,10 @@ import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/util/constants/icon_constants.dart';
 
 class TopRestocard extends StatelessWidget {
-  const TopRestocard({super.key});
+  final String restoName;
+  final String location;
+  const TopRestocard(
+      {super.key, required this.restoName, required this.location});
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +32,11 @@ class TopRestocard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Krishna Bhavan',
+                  restoName,
                   style: TextStyle(color: mBrown, fontSize: 18),
                 ),
                 Text(
-                  'Palazhi, Pala',
+                  location,
                   style: TextStyle(color: mRed, fontSize: 14),
                 )
               ]),

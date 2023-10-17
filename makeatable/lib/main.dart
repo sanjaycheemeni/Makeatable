@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:makeatable/controller/HomePageController.dart';
 import 'package:makeatable/services/HomePageService.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
 import 'package:makeatable/view/auth_module/pages/screen_register_now.dart';
+import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
 
 void main() {
-  print(HomepageService().fetchTop5Resto());
+  HomePageController().fetchTopResto();
 
   // print(UserService().write(
   //     "sanjay", "sanjay@test.com", "12345789", "9495273251", "CUSTOMER"));
@@ -29,6 +31,8 @@ void main() {
             BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)),
         primarySwatch: Colors.red),
     debugShowCheckedModeBanner: false,
-    home: LoginPage(),
+    home: HomeScreen(
+      isLogged: true,
+    ),
   ));
 }

@@ -3,4 +3,5 @@ final url = {
   'USER': '$base_url/auth/register',
   'AUTH': '$base_url/auth/authenticate',
   'TOP_5_RESTO': '$base_url/public/top-rated',
+  'TOP_5_FOOD': '$base_url/public/top',
 };

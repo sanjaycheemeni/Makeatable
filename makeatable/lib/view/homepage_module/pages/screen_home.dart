@@ -1,5 +1,8 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:makeatable/controller/HomePageController.dart';
+import 'package:makeatable/services/constants.dart';
 import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import '../../widgets/widget_catogerycard.dart';
 import '../../widgets/widget_remindercard.dart';
@@ -13,6 +16,8 @@ class HomeScreen extends StatelessWidget {
   late double _deviceHeight;
   late double _deviceWidth;
   final bool isLogged;
+
+  HomePageController homePageController = Get.put(HomePageController());
   HomeScreen({required this.isLogged, super.key});
 
   @override
@@ -54,16 +59,23 @@ class HomeScreen extends StatelessWidget {
             const hBlock(10),
             SizedBox(
                 height: 240,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (c, i) {
-                    return TopRatedCard(
-                        foodName: 'foodName',
-                        price: 'price',
-                        imageLocation: 'imageLocation');
-                  },
+                child: Obx(
+                  () => ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: homePageController.top5Food.length,
+                    itemBuilder: (c, i) {
+                      return TopRatedCard(
+                          rating:
+                              homePageController.top5Food[i].rating.toString(),
+                          foodName: homePageController.top5Food[i].name,
+                          price:
+                              homePageController.top5Food[i].price.toString(),
+                          imageLocation: base_url +
+                              "/" +
+                              homePageController.top5Food[i].imageUrl);
+                    },
+                  ),
                 )),
 
             // Top Resto. section[list of top rated restros.]
@@ -71,13 +83,19 @@ class HomeScreen extends StatelessWidget {
             const hBlock(10),
             SizedBox(
                 height: 80,
-                child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (c, i) {
-                      return TopRestocard();
-                    })),
+                child: Obx(
+                  () => ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: homePageController.top5Resto.length,
+                      itemBuilder: (c, i) {
+                        // print(homePageController.top5Resto[i].fullName);
+                        return TopRestocard(
+                          restoName: homePageController.top5Resto[i].fullName,
+                          location: homePageController.top5Resto[i].location,
+                        );
+                      }),
+                )),
 
             // Catagory section
             const TitleHeading(heading: 'Category'),

@@ -30,11 +30,11 @@ class Resto {
   String foodType;
   int? seatNum;
   String description;
-  int rating;
+  String rating;
   String? typeRoom;
   bool? status;
-  DateTime createdAt;
-  DateTime updatedAt;
+  String createdAt;
+  String updatedAt;
 
   Resto({
     required this.id,
@@ -58,6 +58,7 @@ class Resto {
   });
 
   factory Resto.fromJson(Map<dynamic, dynamic> json) {
+    // print(json['rating'].runtimeType);
     return Resto(
       id: json['id'],
       fullName: json['fullName'],
@@ -72,11 +73,11 @@ class Resto {
       foodType: json['foodType'],
       seatNum: json['seatNum'],
       description: json['description'],
-      rating: json['rating'].toDouble(),
+      rating: json['rating'].toString(),
       typeRoom: json['typeRoom'],
       status: json['status'],
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt'],
+      createdAt: json['createdAt'].toString(),
+      updatedAt: json['updatedAt'].toString(),
     );
   }
 }

@@ -19,6 +19,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _deviceHeight = MediaQuery.of(context).size.height;
     _deviceWidth = MediaQuery.of(context).size.width;
+
+    int gridItemCount = (_deviceWidth / 100).round().toInt();
+    print(gridItemCount);
+
     // Data from DB
 
     return Scaffold(
@@ -37,19 +41,19 @@ class HomeScreen extends StatelessWidget {
             isLogged
                 ? const TitleHeading(heading: 'Reminder')
                 : SizedBox(
-                    height: _deviceHeight * 0.00,
+                    height: 00,
                   ),
             isLogged
                 ? ReminderCard(time: 'time', location: 'location')
                 : SizedBox(
-                    height: _deviceHeight * 0.00,
+                    height: 0,
                   ),
 
             // top rated section [list of Top rated foods]
             const TitleHeading(heading: 'Top Rated'),
             const hBlock(10),
             SizedBox(
-                height: _deviceHeight * 0.27,
+                height: 240,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
@@ -66,7 +70,7 @@ class HomeScreen extends StatelessWidget {
             const TitleHeading(heading: 'Top Restaurants'),
             const hBlock(10),
             SizedBox(
-                height: _deviceHeight * 0.10,
+                height: 80,
                 child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -82,8 +86,8 @@ class HomeScreen extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 7,
                 physics: const BouncingScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: gridItemCount),
                 itemBuilder: (c, i) {
                   return const CatogaryCard();
                 }),

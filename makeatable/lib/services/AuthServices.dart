@@ -16,21 +16,23 @@ class AuthService {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: jsonEncode({"email": auth.email, "password": auth.password}));
+          body: jsonEncode(auth.toJson()));
 
+      print(auth.toJson().toString());
       // log to console
       print(jsonDecode(response.body)['token']);
 
       // store token in storage
       storage.write('accessToken', jsonDecode(response.body)['token']);
 
-      // return status code, if there is no exceptipon
+      // return true, if there is no exceptipon
       return response.statusCode == 200;
     } on ClientException catch (e) {
       // no internet connection
       print("no network" + e.toString());
       return false;
     } catch (e) {
+      print(e.toString());
       return false;
     }
   }

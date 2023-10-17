@@ -13,6 +13,7 @@ class AuthController extends GetxController {
 
   Future logIn(BuildContext context) async {
     change();
+
     if (!(usernameController.text == '' || passwordController.text == '')) {
       var status = await AuthService().auhenticate(new Auth(
           email: usernameController.text, password: passwordController.text));

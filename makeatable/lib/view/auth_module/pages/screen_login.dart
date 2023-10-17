@@ -9,9 +9,7 @@ import 'package:makeatable/view/auth_module/pages/screen_manager_register.dart';
 import 'package:makeatable/view/auth_module/pages/screen_register_now.dart';
 import 'package:makeatable/view/auth_module/widgets/my_button.dart';
 import 'package:makeatable/view/auth_module/widgets/my_textfield.dart';
-import 'package:makeatable/view/auth_module/widgets/snackbar.dart';
 import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
-import 'package:makeatable/view/screen_managerhome.dart';
 
 class LoginPage extends StatelessWidget {
   //new height width

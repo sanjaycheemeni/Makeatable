@@ -9,4 +9,8 @@ class Auth {
   String getUsername() {
     return this.email!;
   }
+
+  Object? toJson() {
+    return {"email": this.email, "password": this.password};
+  }
 }

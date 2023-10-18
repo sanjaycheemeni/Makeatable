@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
+import 'package:makeatable/view/homepage_module/pages/screen_home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -14,8 +17,10 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+      print(GetStorage().read('accessToken'));
+      Get.off((GetStorage().read('accessToken') == null)
+          ? LoginPage()
+          : HomeScreen(isLogged: true));
     });
     super.initState();
   }

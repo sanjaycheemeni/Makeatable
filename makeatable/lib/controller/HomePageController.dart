@@ -9,6 +9,7 @@ import '../model/Top5Food.dart';
 class HomePageController extends GetxController {
   var top5Resto = <Resto>[].obs;
   var top5Food = <Food>[].obs;
+  RxString userName = "sanju".obs;
 
   @override
   void onInit() {

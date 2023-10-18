@@ -1,4 +1,4 @@
-final base_url = "https://f909-223-178-84-218.ngrok-free.app";
+final base_url = "http://192.168.1.46:8080";
 final url = {
   'USER': '$base_url/auth/register',
   'AUTH': '$base_url/auth/authenticate',

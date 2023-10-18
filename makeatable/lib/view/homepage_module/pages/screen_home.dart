@@ -2,6 +2,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:makeatable/controller/HomePageController.dart';
+import 'package:makeatable/controller/userController.dart';
 import 'package:makeatable/services/constants.dart';
 import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import '../../widgets/widget_catogerycard.dart';
@@ -38,9 +39,9 @@ class HomeScreen extends StatelessWidget {
             // View Starts
             const wBlock(10),
             // welcome msg
-            isLogged
-                ? WelcomeMessage(name: ' Rafi')
-                : WelcomeMessage(name: ' get Your Food'),
+            Obx(() => WelcomeMessage(
+                  name: homePageController.userName.value,
+                )),
 
             // Reminder section
             isLogged

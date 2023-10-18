@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:makeatable/controller/AuthController.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/auth_module/pages/screen_forgot_password.dart';
@@ -174,7 +176,11 @@ class LoginPage extends StatelessWidget {
                     const Text('are you a manager     '),
                     GestureDetector(
                       onTap: () {
-                        Get.to(ManagerRegister());
+                        GetStorage().write(
+                            'accessToken', "sklsacjsahcblcabclgJHVJDvhv");
+
+                        print(GetStorage().read('accessToken'));
+                        // Get.to(ManagerRegister());
                       },
                       child: const Text(
                         'Register Now',

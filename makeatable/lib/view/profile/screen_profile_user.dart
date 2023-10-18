@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:makeatable/util/constants/color_constants.dart';
 import 'package:makeatable/view/SearchResult/Widgets/bottomnavbar.dart';
 import 'package:makeatable/view/auth_module/pages/screen_login.dart';
@@ -35,6 +36,7 @@ class _UserPageState extends State<UserPage> {
                     children: [
                       GestureDetector(
                         onTap: () {
+                          GetStorage().erase();
                           Get.off(LoginPage());
                         },
                         child: Icon(

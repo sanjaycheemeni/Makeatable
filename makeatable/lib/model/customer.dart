@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class User {
   String fullName;
   String email;
@@ -28,4 +30,20 @@ class User {
       '"status"': '"$status"',
     };
   }
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      fullName: json['fullName'],
+      email: json['email'],
+      password: json['password'],
+      mobileNumber: json['mobileNumber'],
+      preference: json['preference'],
+      userType: json['userType'],
+      status: json['status'],
+    );
+  }
+}
+
+Future<User> userFromJson(String data) async {
+  return User.fromJson(json.decode(data));
 }

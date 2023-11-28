@@ -36,6 +36,7 @@ class AuthController extends GetxController {
   }
 
   void change() {
+    // toggle
     isLoading.value = !isLoading.value;
   }
 }
